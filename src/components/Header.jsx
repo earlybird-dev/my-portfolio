@@ -1,0 +1,36 @@
+import React from 'react';
+
+const Header = () => {
+  return (
+    <>
+      <header className="header container mb-5">
+        <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mt-3 mb-5">
+          <div className="navbar-name">early-bird.dev</div>
+          <div className="navbar-social d-flex gap-4">
+            <p>g</p>
+            <p>l</p>
+            <p>e</p>
+          </div>
+        </div>
+        <div className="intro d-flex flex-column gap-4">
+          <div>
+            <h1>Nice to meet you!</h1>
+            <h1>
+              I'm <span>Trung Ha</span>
+            </h1>
+          </div>
+          <p className="">
+            Based in Australia, I'm a front-end developer passionate about
+            building accessible web apps that users love. Happy to relocate to
+            anywhere in the country.
+          </p>
+          <a href="#contact" className="">
+            Contact Me
+          </a>
+        </div>
+      </header>
+    </>
+  );
+};
+
+export default Header;

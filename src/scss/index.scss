@@ -1,3 +1,61 @@
+// ======= CUSTOM BOOTSTRAP =======
+// Custom colors
+$black: hsl(0, 0%, 8%);
+$darkgray: hsl(0, 0%, 14%);
+$green: hsl(153, 71%, 59%);
+$white: hsl(0, 0%, 100%);
+$gray: hsl(0, 0%, 85%);
+$red: hsl(357, 87%, 61%);
+$blue: hsl(226, 100%, 61%);
+$yellow: #cbfc02;
+
+// Import the functions and variables
+@import '../../node_modules/bootstrap/scss/_functions';
+@import '../../node_modules/bootstrap/scss/_variables';
+
+$custom-theme-colors: (
+  'black': $black,
+  'darkgray': $darkgray,
+  'green': $green,
+  'white': $white,
+  'gray': $gray,
+  'red': $red,
+  'blue': $blue,
+);
+
+$theme-colors: map-merge($custom-theme-colors, $theme-colors);
+
+// Import Bootstrap, Animate
+@import '../../node_modules/bootstrap/scss/bootstrap';
+@import '../../node_modules/animate.css/animate.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+
+$font-primary: 'Space Grotesk', sans-serif;
+$fs-18: 1.123rem;
+$fs-88: 5.5rem;
+$fs-72: 4.5rem;
+$fs-56: 3.5rem;
+$fs-48: 3rem;
+$fs-40: 2.5rem;
+$fs-32: 2rem;
+$fs-24: 1.5rem;
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+  -moz-border-radius: $radius;
+  -ms-border-radius: $radius;
+  border-radius: $radius;
+}
+
+@mixin transition($transition) {
+  -moz-transition: all $transition ease;
+  -o-transition: all $transition ease;
+  -webkit-transition: all $transition ease;
+  -ms-transition: all $transition ease;
+  transition: all $transition ease;
+}
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -11,4 +69,81 @@ html {
 
 body {
   margin: 0;
+  font-family: $font-primary;
+  background-color: $black;
+  color: $white;
+  font-size: $fs-18;
+  line-height: 1.56;
+}
+
+h1 {
+  font-size: $fs-88;
+}
+
+.header {
+  .navbar {
+    .navbar-social {
+      transform: rotate(-2deg);
+
+      position: relative;
+      &:before {
+        background-color: $red;
+        content: '';
+        position: absolute;
+        width: calc(100% + 20px);
+        height: 200%;
+        left: -10px;
+        bottom: 10px;
+        z-index: -1;
+        transform: rotate(-2deg);
+      }
+    }
+  }
+  .intro {
+    h1 {
+      @include media-breakpoint-down(xl) {
+        font-size: $fs-72;
+      }
+      @include media-breakpoint-down(lg) {
+        font-size: $fs-56;
+      }
+      @include media-breakpoint-down(md) {
+        font-size: $fs-40;
+      }
+      span {
+        position: relative;
+        &:before {
+          background-color: $blue;
+          content: '';
+          position: absolute;
+          width: calc(100% + 4px);
+          height: 60%;
+          left: -2px;
+          bottom: 0;
+          z-index: -1;
+          transform: rotate(-2deg);
+        }
+      }
+    }
+    p {
+      width: 50%;
+      @include media-breakpoint-down(lg) {
+        width: 100%;
+      }
+    }
+    a {
+      display: block;
+      width: fit-content;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $blue;
+      border-bottom: 4px solid $blue;
+
+      &:hover {
+        color: $red;
+        border-bottom: 4px solid $red;
+      }
+    }
+  }
 }
