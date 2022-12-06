@@ -11373,8 +11373,53 @@ h1, .h1 {
 }
 
 .header .navbar .navbar-social {
-  transform: rotate(-2deg);
+  transform: rotate(-4deg);
   position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.header .navbar .navbar-social .icon-3d {
+  font-size: 2rem;
+  padding: 10px;
+  -webkit-animation: icon3d 200ms 10;
+  animation: icon3d 200ms 10;
+  color: hsl(0deg, 0%, 100%);
+}
+@media (max-width: 767.98px) {
+  .header .navbar .navbar-social .icon-3d {
+    font-size: 1.123rem;
+  }
+}
+.header .navbar .navbar-social .icon-3d:hover {
+  -webkit-animation: icon3d 200ms infinite;
+  animation: icon3d 200ms infinite;
+}
+@keyframes icon3d {
+  0% {
+    text-shadow: 5px 4px hsl(357deg, 87%, 61%), -5px -6px hsl(226deg, 100%, 61%);
+  }
+  25% {
+    text-shadow: -5px -6px hsl(357deg, 87%, 61%), 5px 4px hsl(226deg, 100%, 61%);
+  }
+  50% {
+    text-shadow: 5px -4px hsl(357deg, 87%, 61%), -8px 4px hsl(226deg, 100%, 61%);
+  }
+  75% {
+    text-shadow: -8px -4px hsl(357deg, 87%, 61%), -5px -4px hsl(226deg, 100%, 61%);
+  }
+  100% {
+    text-shadow: -5px 0 hsl(357deg, 87%, 61%), 5px -4px hsl(226deg, 100%, 61%);
+  }
 }
 .header .navbar .navbar-social:before {
   background-color: hsl(357deg, 87%, 61%);
@@ -11385,7 +11430,6 @@ h1, .h1 {
   left: -10px;
   bottom: 10px;
   z-index: -1;
-  transform: rotate(-2deg);
 }
 @media (max-width: 1199.98px) {
   .header .intro h1, .header .intro .h1 {
@@ -11430,10 +11474,10 @@ h1, .h1 {
   font-weight: bold;
   text-transform: uppercase;
   text-decoration: none;
-  color: hsl(226deg, 100%, 61%);
-  border-bottom: 4px solid hsl(226deg, 100%, 61%);
-}
-.header .intro a:hover {
   color: hsl(357deg, 87%, 61%);
   border-bottom: 4px solid hsl(357deg, 87%, 61%);
+}
+.header .intro a:hover {
+  color: hsl(226deg, 100%, 61%);
+  border-bottom: 4px solid hsl(226deg, 100%, 61%);
 }/*# sourceMappingURL=index.css.map */

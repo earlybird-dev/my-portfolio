@@ -6,10 +6,16 @@ const Header = () => {
       <header className="header container mb-5">
         <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mt-3 mb-5">
           <div className="navbar-name">early-bird.dev</div>
-          <div className="navbar-social d-flex gap-4">
-            <p>g</p>
-            <p>l</p>
-            <p>e</p>
+          <div className="navbar-social d-flex gap-4 pb-1 pb-md-3">
+            <a href="#contact" className="p-2">
+              <i className="fa fa-github icon-3d"></i>
+            </a>
+            <a href="#contact" className="p-2">
+              <i className="fa fa-linkedin icon-3d"></i>
+            </a>
+            <a href="#contact" className="p-2">
+              <i className="fa fa-envelope icon-3d"></i>
+            </a>
           </div>
         </div>
         <div className="intro d-flex flex-column gap-4">

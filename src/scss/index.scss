@@ -82,10 +82,60 @@ h1 {
 
 .header {
   .navbar {
-    .navbar-social {
-      transform: rotate(-2deg);
+    .navbar-name {
+    }
 
+    .navbar-social {
+      transform: rotate(-4deg);
       position: relative;
+
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: center;
+      -webkit-justify-content: center;
+      -ms-flex-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center;
+
+      .icon-3d {
+        font-size: $fs-32;
+        @include media-breakpoint-down(md) {
+          font-size: $fs-18;
+        }
+
+        padding: 10px;
+        -webkit-animation: icon3d 200ms 10;
+        animation: icon3d 200ms 10;
+        color: $white;
+        &:hover {
+          -webkit-animation: icon3d 200ms infinite;
+          animation: icon3d 200ms infinite;
+        }
+      }
+
+      @keyframes icon3d {
+        0% {
+          text-shadow: 5px 4px $red, -5px -6px $blue;
+        }
+        25% {
+          text-shadow: -5px -6px $red, 5px 4px $blue;
+        }
+        50% {
+          text-shadow: 5px -4px $red, -8px 4px $blue;
+        }
+        75% {
+          text-shadow: -8px -4px $red, -5px -4px $blue;
+        }
+        100% {
+          text-shadow: -5px 0 $red, 5px -4px $blue;
+        }
+      }
+
       &:before {
         background-color: $red;
         content: '';
@@ -95,10 +145,10 @@ h1 {
         left: -10px;
         bottom: 10px;
         z-index: -1;
-        transform: rotate(-2deg);
       }
     }
   }
+
   .intro {
     h1 {
       @include media-breakpoint-down(xl) {
@@ -137,12 +187,12 @@ h1 {
       font-weight: bold;
       text-transform: uppercase;
       text-decoration: none;
-      color: $blue;
-      border-bottom: 4px solid $blue;
+      color: $red;
+      border-bottom: 4px solid $red;
 
       &:hover {
-        color: $red;
-        border-bottom: 4px solid $red;
+        color: $blue;
+        border-bottom: 4px solid $blue;
       }
     }
   }
