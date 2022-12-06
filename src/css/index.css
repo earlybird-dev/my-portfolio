@@ -37,6 +37,7 @@
   --bs-white: hsl(0deg, 0%, 100%);
   --bs-gray: hsl(0deg, 0%, 85%);
   --bs-red: hsl(357deg, 87%, 61%);
+  --bs-darkred: hsl(357deg, 77%, 50%);
   --bs-blue: hsl(226deg, 100%, 61%);
   --bs-primary: hsl(226deg, 100%, 61%);
   --bs-secondary: #6c757d;
@@ -52,6 +53,7 @@
   --bs-white-rgb: 255, 255, 255;
   --bs-gray-rgb: 217, 217, 217;
   --bs-red-rgb: 242, 69, 78;
+  --bs-darkred-rgb: 226, 29, 39;
   --bs-blue-rgb: 56, 103, 255;
   --bs-primary-rgb: 56, 103, 255;
   --bs-secondary-rgb: 108, 117, 125;
@@ -2919,6 +2921,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-border-color: hsl(357deg, 87%, 61%);
 }
 
+.btn-darkred {
+  --bs-btn-color: hsl(0deg, 0%, 100%);
+  --bs-btn-bg: hsl(357deg, 77%, 50%);
+  --bs-btn-border-color: hsl(357deg, 77%, 50%);
+  --bs-btn-hover-color: hsl(0deg, 0%, 100%);
+  --bs-btn-hover-bg: #c01921;
+  --bs-btn-hover-border-color: #b5171f;
+  --bs-btn-focus-shadow-rgb: 230, 63, 71;
+  --bs-btn-active-color: hsl(0deg, 0%, 100%);
+  --bs-btn-active-bg: #b5171f;
+  --bs-btn-active-border-color: #aa161d;
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(20, 20, 20, 0.125);
+  --bs-btn-disabled-color: hsl(0deg, 0%, 100%);
+  --bs-btn-disabled-bg: hsl(357deg, 77%, 50%);
+  --bs-btn-disabled-border-color: hsl(357deg, 77%, 50%);
+}
+
 .btn-blue {
   --bs-btn-color: hsl(0deg, 0%, 100%);
   --bs-btn-bg: hsl(226deg, 100%, 61%);
@@ -3171,6 +3190,23 @@ textarea.form-control-lg {
   --bs-btn-disabled-color: hsl(357deg, 87%, 61%);
   --bs-btn-disabled-bg: transparent;
   --bs-btn-disabled-border-color: hsl(357deg, 87%, 61%);
+  --bs-gradient: none;
+}
+
+.btn-outline-darkred {
+  --bs-btn-color: hsl(357deg, 77%, 50%);
+  --bs-btn-border-color: hsl(357deg, 77%, 50%);
+  --bs-btn-hover-color: hsl(0deg, 0%, 100%);
+  --bs-btn-hover-bg: hsl(357deg, 77%, 50%);
+  --bs-btn-hover-border-color: hsl(357deg, 77%, 50%);
+  --bs-btn-focus-shadow-rgb: 226, 29, 39;
+  --bs-btn-active-color: hsl(0deg, 0%, 100%);
+  --bs-btn-active-bg: hsl(357deg, 77%, 50%);
+  --bs-btn-active-border-color: hsl(357deg, 77%, 50%);
+  --bs-btn-active-shadow: inset 0 3px 5px rgba(20, 20, 20, 0.125);
+  --bs-btn-disabled-color: hsl(357deg, 77%, 50%);
+  --bs-btn-disabled-bg: transparent;
+  --bs-btn-disabled-border-color: hsl(357deg, 77%, 50%);
   --bs-gradient: none;
 }
 
@@ -4921,6 +4957,15 @@ textarea.form-control-lg {
   color: #742126;
 }
 
+.alert-darkred {
+  --bs-alert-color: #881117;
+  --bs-alert-bg: #f9d2d4;
+  --bs-alert-border-color: #f6bbbe;
+}
+.alert-darkred .alert-link {
+  color: #6d0e12;
+}
+
 .alert-blue {
   --bs-alert-color: #223e99;
   --bs-alert-bg: #d7e1ff;
@@ -5376,6 +5421,20 @@ textarea.form-control-lg {
   color: hsl(0deg, 0%, 100%);
   background-color: #91292f;
   border-color: #91292f;
+}
+
+.list-group-item-darkred {
+  color: #881117;
+  background-color: #f9d2d4;
+}
+.list-group-item-darkred.list-group-item-action:hover, .list-group-item-darkred.list-group-item-action:focus {
+  color: #881117;
+  background-color: #e0bdbf;
+}
+.list-group-item-darkred.list-group-item-action.active {
+  color: hsl(0deg, 0%, 100%);
+  background-color: #881117;
+  border-color: #881117;
 }
 
 .list-group-item-blue {
@@ -7050,6 +7109,11 @@ textarea.form-control-lg {
   background-color: RGBA(242, 69, 78, var(--bs-bg-opacity, 1)) !important;
 }
 
+.text-bg-darkred {
+  color: hsl(0deg, 0%, 100%) !important;
+  background-color: RGBA(226, 29, 39, var(--bs-bg-opacity, 1)) !important;
+}
+
 .text-bg-blue {
   color: hsl(0deg, 0%, 100%) !important;
   background-color: RGBA(56, 103, 255, var(--bs-bg-opacity, 1)) !important;
@@ -7135,6 +7199,13 @@ textarea.form-control-lg {
 }
 .link-red:hover, .link-red:focus {
   color: #f56a71 !important;
+}
+
+.link-darkred {
+  color: hsl(357deg, 77%, 50%) !important;
+}
+.link-darkred:hover, .link-darkred:focus {
+  color: #b5171f !important;
 }
 
 .link-blue {
@@ -7649,6 +7720,11 @@ textarea.form-control-lg {
 .border-red {
   --bs-border-opacity: 1;
   border-color: rgba(var(--bs-red-rgb), var(--bs-border-opacity)) !important;
+}
+
+.border-darkred {
+  --bs-border-opacity: 1;
+  border-color: rgba(var(--bs-darkred-rgb), var(--bs-border-opacity)) !important;
 }
 
 .border-blue {
@@ -8543,6 +8619,11 @@ textarea.form-control-lg {
   color: rgba(var(--bs-red-rgb), var(--bs-text-opacity)) !important;
 }
 
+.text-darkred {
+  --bs-text-opacity: 1;
+  color: rgba(var(--bs-darkred-rgb), var(--bs-text-opacity)) !important;
+}
+
 .text-blue {
   --bs-text-opacity: 1;
   color: rgba(var(--bs-blue-rgb), var(--bs-text-opacity)) !important;
@@ -8657,6 +8738,11 @@ textarea.form-control-lg {
 .bg-red {
   --bs-bg-opacity: 1;
   background-color: rgba(var(--bs-red-rgb), var(--bs-bg-opacity)) !important;
+}
+
+.bg-darkred {
+  --bs-bg-opacity: 1;
+  background-color: rgba(var(--bs-darkred-rgb), var(--bs-bg-opacity)) !important;
 }
 
 .bg-blue {
@@ -11406,19 +11492,19 @@ h1, .h1 {
 }
 @keyframes icon3d {
   0% {
-    text-shadow: 5px 4px hsl(357deg, 87%, 61%), -5px -6px hsl(226deg, 100%, 61%);
+    text-shadow: 5px 4px hsl(357deg, 77%, 50%), -5px -6px hsl(226deg, 100%, 61%);
   }
   25% {
-    text-shadow: -5px -6px hsl(357deg, 87%, 61%), 5px 4px hsl(226deg, 100%, 61%);
+    text-shadow: -5px -6px hsl(357deg, 77%, 50%), 5px 4px hsl(226deg, 100%, 61%);
   }
   50% {
-    text-shadow: 5px -4px hsl(357deg, 87%, 61%), -8px 4px hsl(226deg, 100%, 61%);
+    text-shadow: 5px -4px hsl(357deg, 77%, 50%), -8px 4px hsl(226deg, 100%, 61%);
   }
   75% {
-    text-shadow: -8px -4px hsl(357deg, 87%, 61%), -5px -4px hsl(226deg, 100%, 61%);
+    text-shadow: -8px -4px hsl(357deg, 77%, 50%), -5px -4px hsl(226deg, 100%, 61%);
   }
   100% {
-    text-shadow: -5px 0 hsl(357deg, 87%, 61%), 5px -4px hsl(226deg, 100%, 61%);
+    text-shadow: -5px 0 hsl(357deg, 77%, 50%), 5px -4px hsl(226deg, 100%, 61%);
   }
 }
 .header .navbar .navbar-social:before {
@@ -11430,6 +11516,27 @@ h1, .h1 {
   left: -10px;
   bottom: 10px;
   z-index: -1;
+}
+.header .intro {
+  position: relative;
+}
+.header .intro .logo {
+  position: absolute;
+  width: 25%;
+  right: 0;
+  top: 0;
+}
+.header .intro .logo img {
+  width: 100%;
+}
+@media (max-width: 575.98px) {
+  .header .intro .logo {
+    position: relative;
+    width: 100%;
+  }
+  .header .intro .logo img {
+    width: 200px;
+  }
 }
 @media (max-width: 1199.98px) {
   .header .intro h1, .header .intro .h1 {

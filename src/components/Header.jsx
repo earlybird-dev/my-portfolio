@@ -1,4 +1,5 @@
 import React from 'react';
+import logo from '../logo.png';
 
 const Header = () => {
   return (
@@ -34,6 +35,10 @@ const Header = () => {
           </div>
         </div>
         <div className="intro d-flex flex-column gap-4">
+          <div className="logo d-flex align-items-center justify-content-center">
+            <img src={logo} alt="logo" className="" />
+          </div>
+
           <div>
             <h1>Nice to meet you!</h1>
             <h1>

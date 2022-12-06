@@ -6,6 +6,7 @@ $green: hsl(153, 71%, 59%);
 $white: hsl(0, 0%, 100%);
 $gray: hsl(0, 0%, 85%);
 $red: hsl(357, 87%, 61%);
+$darkred: hsl(357, 77%, 50%);
 $blue: hsl(226, 100%, 61%);
 $yellow: #cbfc02;
 
@@ -20,6 +21,7 @@ $custom-theme-colors: (
   'white': $white,
   'gray': $gray,
   'red': $red,
+  'darkred': $darkred,
   'blue': $blue,
 );
 
@@ -120,19 +122,19 @@ h1 {
 
       @keyframes icon3d {
         0% {
-          text-shadow: 5px 4px $red, -5px -6px $blue;
+          text-shadow: 5px 4px $darkred, -5px -6px $blue;
         }
         25% {
-          text-shadow: -5px -6px $red, 5px 4px $blue;
+          text-shadow: -5px -6px $darkred, 5px 4px $blue;
         }
         50% {
-          text-shadow: 5px -4px $red, -8px 4px $blue;
+          text-shadow: 5px -4px $darkred, -8px 4px $blue;
         }
         75% {
-          text-shadow: -8px -4px $red, -5px -4px $blue;
+          text-shadow: -8px -4px $darkred, -5px -4px $blue;
         }
         100% {
-          text-shadow: -5px 0 $red, 5px -4px $blue;
+          text-shadow: -5px 0 $darkred, 5px -4px $blue;
         }
       }
 
@@ -150,6 +152,23 @@ h1 {
   }
 
   .intro {
+    position: relative;
+    .logo {
+      img {
+        width: 100%;
+      }
+      position: absolute;
+      width: 25%;
+      right: 0;
+      top: 0;
+      @include media-breakpoint-down(sm) {
+        position: relative;
+        width: 100%;
+        img {
+          width: 200px;
+        }
+      }
+    }
     h1 {
       @include media-breakpoint-down(xl) {
         font-size: $fs-72;
