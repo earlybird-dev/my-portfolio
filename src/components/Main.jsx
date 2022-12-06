@@ -6,7 +6,7 @@ import Experience from './Experience';
 const Main = () => {
   return (
     <>
-      <main id="main" className="container">
+      <main id="main" className="">
         <Skills />
         <Projects />
         <Experience />

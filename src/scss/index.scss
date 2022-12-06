@@ -34,7 +34,6 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
 $font-primary: 'Space Grotesk', sans-serif;
-$fs-18: 1.123rem;
 $fs-88: 5.5rem;
 $fs-72: 4.5rem;
 $fs-56: 3.5rem;
@@ -42,6 +41,9 @@ $fs-48: 3rem;
 $fs-40: 2.5rem;
 $fs-32: 2rem;
 $fs-24: 1.5rem;
+$fs-18: 1.125rem;
+$fs-16: 1rem;
+$fs-12: 0.75rem;
 
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
@@ -80,6 +82,7 @@ body {
 
 h1 {
   font-size: $fs-88;
+
   @include media-breakpoint-down(xl) {
     font-size: $fs-72;
   }
@@ -88,6 +91,43 @@ h1 {
   }
   @include media-breakpoint-down(md) {
     font-size: $fs-40;
+  }
+}
+
+h2 {
+  font-size: $fs-72;
+  @include media-breakpoint-down(xl) {
+    font-size: $fs-56;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: $fs-40;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: $fs-32;
+  }
+}
+
+h3 {
+  font-size: $fs-48;
+  text-transform: uppercase;
+
+  @include media-breakpoint-down(xl) {
+    font-size: $fs-40;
+  }
+  @include media-breakpoint-down(lg) {
+    font-size: $fs-32;
+  }
+  @include media-breakpoint-down(md) {
+    font-size: $fs-24;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: $fs-18;
+  }
+}
+
+a {
+  &:focus {
+    text-decoration: none;
   }
 }
 
@@ -195,6 +235,18 @@ h1 {
           bottom: 0;
           z-index: -1;
           transform: rotate(-2deg);
+          transition: background-color 0.25s ease-in-out;
+        }
+        &:hover::before {
+          background-color: $red;
+          content: '';
+          position: absolute;
+          width: calc(100% + 4px);
+          height: 60%;
+          left: -2px;
+          bottom: 0;
+          z-index: -1;
+          transform: rotate(-2deg);
         }
       }
     }
@@ -227,14 +279,105 @@ h1 {
       }
 
       &:hover::before {
+        background-color: $blue;
         bottom: 0;
         height: 100%;
       }
+    }
+  }
+}
 
-      // &:visited {
-      //   color: $yellow;
-      //   border-bottom: 4px solid $yellow;
-      // }
+// SKILLS
+
+#skills {
+  .skill-web {
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      background-color: $blue;
+    }
+  }
+  .skill-data {
+    transition: all 0.25s ease-in-out;
+    &:hover {
+      background-color: $red;
+    }
+  }
+}
+
+// PROJECTS
+
+#projects {
+  .project-links {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    @include media-breakpoint-down(sm) {
+      font-size: $fs-16;
+    }
+    a {
+      display: block;
+      position: relative;
+      width: fit-content;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: $white;
+      // border-bottom: 4px solid $yellow;
+
+      &:before {
+        content: '';
+        background-color: $blue;
+        position: absolute;
+        left: 0;
+        bottom: 3px;
+        width: 100%;
+        height: 7px;
+        z-index: -1;
+        transition: all 0.3s ease-in-out;
+      }
+
+      &:hover::before {
+        background-color: $red;
+        bottom: 0;
+        height: 100%;
+      }
+    }
+  }
+  .project-img {
+    width: 100%;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      background: rgba($black, 0.75); /* Black see-through */
+      width: 100%;
+      height: 100%;
+      opacity: 1;
+      transition: background 0.3s ease-in-out;
+    }
+  }
+
+  .project-info {
+    .project-name {
+      font-weight: bold;
+      text-transform: uppercase;
+      font-size: $fs-24;
+      @include media-breakpoint-down(sm) {
+        font-size: $fs-18;
+      }
+    }
+    .project-skills {
+      font-weight: light;
+      text-transform: uppercase;
+      @include media-breakpoint-down(sm) {
+        font-size: $fs-12;
+      }
     }
   }
 }
