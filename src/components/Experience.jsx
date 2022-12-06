@@ -2,7 +2,7 @@ import React from 'react';
 
 const Experience = () => {
   return (
-    <div id="experience" className="">
+    <section id="experience" className="">
       <h1>Experience</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
@@ -18,7 +18,7 @@ const Experience = () => {
         commodi. Exercitationem consequuntur quae eaque deserunt, adipisci
         praesentium.
       </p>
-    </div>
+    </section>
   );
 };
 

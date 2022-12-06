@@ -2,7 +2,7 @@ import React from 'react';
 
 const Projects = () => {
   return (
-    <div id="projects" className="">
+    <section id="projects" className="">
       <h1>Projects</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Maiores veniam
@@ -17,7 +17,7 @@ const Projects = () => {
         necessitatibus assumenda est nisi suscipit voluptate quo sequi beatae,
         amet soluta eaque incidunt quia perspiciatis aliquam nemo.
       </p>
-    </div>
+    </section>
   );
 };
 

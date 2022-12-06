@@ -2,7 +2,7 @@ import React from 'react';
 
 const Skills = () => {
   return (
-    <div id="skills" className="">
+    <section id="skills" className="">
       <h1>Skills</h1>
       <p>
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Distinctio
@@ -17,7 +17,7 @@ const Skills = () => {
         quibusdam voluptates quod corrupti voluptatum in tenetur fuga! Eius
         eveniet culpa repudiandae atque impedit!
       </p>
-    </div>
+    </section>
   );
 };
 
