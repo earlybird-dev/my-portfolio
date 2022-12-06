@@ -5,7 +5,7 @@ import sun from '../sun.png';
 const Header = () => {
   return (
     <>
-      <header className="header container mb-5">
+      <header className="header container mb-5 min-vh-100">
         <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mb-1 mb-sm-5">
           <div className="navbar-name">early-bird.dev</div>
           <div className="navbar-social d-flex gap-2 gap-md-4 pb-1 pb-md-3">
@@ -53,9 +53,20 @@ const Header = () => {
             building accessible web apps that users love. Happy to relocate to
             anywhere in the country.
           </p>
-          <a href="#contact" className="">
-            Contact Me
-          </a>
+          <div className="d-flex flex-column ">
+            <a href="#skills" className="">
+              Skills
+            </a>
+            <a href="#projects" className="">
+              Projects
+            </a>
+            <a href="#experience" className="">
+              Experience
+            </a>
+            {/* <a href="#contact" className="">
+              Contact Me
+            </a> */}
+          </div>
         </div>
       </header>
     </>
