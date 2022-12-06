@@ -1,13 +1,14 @@
 import React from 'react';
 import logo from '../logo.png';
+import sun from '../sun.png';
 
 const Header = () => {
   return (
     <>
       <header className="header container mb-5">
-        <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mt-3 mb-5">
+        <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mb-1 mb-sm-5">
           <div className="navbar-name">early-bird.dev</div>
-          <div className="navbar-social d-flex gap-4 pb-1 pb-md-3">
+          <div className="navbar-social d-flex gap-2 gap-md-4 pb-1 pb-md-3">
             <a
               href="https://github.com/earlybird-dev"
               rel="noreferrer"
@@ -35,10 +36,12 @@ const Header = () => {
           </div>
         </div>
         <div className="intro d-flex flex-column gap-4">
-          <div className="logo d-flex align-items-center justify-content-center">
+          <div className="logo d-flex align-items-center justify-content-center animate__animated  animate__lightSpeedInRight animate__delay-1s">
             <img src={logo} alt="logo" className="" />
           </div>
-
+          {/* <div className="logo sun d-flex align-items-center justify-content-center animate__animated  animate__bounceOutDown animate__delay-2s">
+            <img src={sun} alt="sun" className="" />
+          </div> */}
           <div>
             <h1>Nice to meet you!</h1>
             <h1>
