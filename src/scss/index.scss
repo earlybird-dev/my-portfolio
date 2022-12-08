@@ -2,13 +2,15 @@
 // Custom colors
 $black: hsl(0, 0%, 8%);
 $darkgray: hsl(0, 0%, 14%);
+$lightgray: hsl(0, 0%, 97%);
 $green: hsl(153, 71%, 59%);
 $white: hsl(0, 0%, 100%);
 $gray: hsl(0, 0%, 85%);
 $red: hsl(357, 87%, 61%);
 $darkred: hsl(357, 77%, 50%);
 $blue: hsl(226, 100%, 61%);
-$yellow: #cbfc02;
+$darkblue: hsl(216, 81%, 29%);
+$yellow: hsl(72, 98%, 50%);
 
 // Import the functions and variables
 @import '../../node_modules/bootstrap/scss/_functions';
@@ -23,6 +25,8 @@ $custom-theme-colors: (
   'red': $red,
   'darkred': $darkred,
   'blue': $blue,
+  'darkblue': $darkblue,
+  'yellow': $yellow,
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
@@ -75,9 +79,16 @@ body {
   margin: 0;
   font-family: $font-primary;
   background-color: $black;
-  color: $white;
+  color: $lightgray;
   font-size: $fs-18;
   line-height: 1.56;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 h1 {
@@ -95,6 +106,7 @@ h1 {
 }
 
 h2 {
+  margin-bottom: $fs-40;
   font-size: $fs-72;
   @include media-breakpoint-down(xl) {
     font-size: $fs-56;
@@ -105,23 +117,50 @@ h2 {
   @include media-breakpoint-down(md) {
     font-size: $fs-32;
   }
+  span {
+    position: relative;
+    z-index: 1;
+    &:before {
+      background-color: $darkblue;
+      content: '';
+      position: absolute;
+      width: calc(100% + 4px);
+      height: 40%;
+      left: -2px;
+      bottom: 0;
+      z-index: -1;
+      transform: rotate(-2deg);
+      transition: background-color 0.25s ease-in-out;
+    }
+    &:hover::before {
+      background-color: $darkred;
+      content: '';
+      position: absolute;
+      width: calc(100% + 4px);
+      height: 40%;
+      left: -2px;
+      bottom: 0;
+      z-index: -1;
+      transform: rotate(-2deg);
+    }
+  }
 }
 
 h3 {
-  font-size: $fs-48;
+  font-size: $fs-40;
   text-transform: uppercase;
 
   @include media-breakpoint-down(xl) {
-    font-size: $fs-40;
-  }
-  @include media-breakpoint-down(lg) {
     font-size: $fs-32;
   }
-  @include media-breakpoint-down(md) {
+  @include media-breakpoint-down(lg) {
     font-size: $fs-24;
   }
-  @include media-breakpoint-down(sm) {
+  @include media-breakpoint-down(md) {
     font-size: $fs-18;
+  }
+  @include media-breakpoint-down(sm) {
+    font-size: $fs-16;
   }
 }
 
@@ -135,8 +174,15 @@ a {
   .navbar {
     .navbar-name {
       font-size: $fs-18;
-      @include media-breakpoint-down(md) {
-        font-size: $fs-18;
+      a {
+        text-decoration: none;
+        color: $lightgray;
+
+        &:focus,
+        &:visited,
+        &:hover {
+          text-decoration: none;
+        }
       }
     }
 
@@ -164,8 +210,8 @@ a {
         }
 
         padding: 10px;
-        -webkit-animation: icon3d 200ms 10;
-        animation: icon3d 200ms 10;
+        // -webkit-animation: icon3d 200ms 10;
+        // animation: icon3d 200ms 10;
         color: $white;
         &:hover {
           -webkit-animation: icon3d 200ms infinite;
@@ -175,19 +221,19 @@ a {
 
       @keyframes icon3d {
         0% {
-          text-shadow: 5px 4px $darkred, -5px -6px $blue;
+          text-shadow: 5px 4px $darkred, -5px -6px $darkblue;
         }
         25% {
-          text-shadow: -5px -6px $darkred, 5px 4px $blue;
+          text-shadow: -5px -6px $darkred, 5px 4px $darkblue;
         }
         50% {
-          text-shadow: 5px -4px $darkred, -8px 4px $blue;
+          text-shadow: 5px -4px $darkred, -8px 4px $darkblue;
         }
         75% {
-          text-shadow: -8px -4px $darkred, -5px -4px $blue;
+          text-shadow: -8px -4px $darkred, -5px -4px $darkblue;
         }
         100% {
-          text-shadow: -5px 0 $darkred, 5px -4px $blue;
+          text-shadow: -5px 0 $darkred, 5px -4px $darkblue;
         }
       }
 
@@ -200,6 +246,204 @@ a {
         left: -10px;
         bottom: 10px;
         z-index: -1;
+      }
+    }
+  }
+
+  #clouds {
+    // padding: 100px 0;
+    // background: #c9dbe9;
+    // background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    // background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    // background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    // width: 100%;
+  }
+
+  /*Time to finalise the cloud shape*/
+  .cloud {
+    width: 200px;
+    height: 60px;
+    background: $white;
+    border-radius: 200px;
+    -moz-border-radius: 200px;
+    -webkit-border-radius: 200px;
+    position: relative;
+  }
+
+  .cloud:before,
+  .cloud:after {
+    content: '';
+    position: absolute;
+    background: $white;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+    top: -15px;
+    left: 10px;
+
+    border-radius: 100px;
+    -moz-border-radius: 100px;
+    -webkit-border-radius: 100px;
+
+    -webkit-transform: rotate(30deg);
+    transform: rotate(30deg);
+    -moz-transform: rotate(30deg);
+  }
+
+  .cloud:after {
+    width: 120px;
+    height: 120px;
+    top: -55px;
+    left: auto;
+    right: 15px;
+  }
+
+  /*Time to animate*/
+  .x1 {
+    -webkit-animation: moveclouds 10s linear infinite;
+    -moz-animation: moveclouds 10s linear infinite;
+    -o-animation: moveclouds 10s linear infinite;
+    opacity: 0.95; /*opacity proportional to the size*/
+    @include media-breakpoint-down(md) {
+      -webkit-transform: scale(0.5);
+      -moz-transform: scale(0.5);
+      transform: scale(0.5);
+    }
+  }
+
+  /*variable speed, opacity, and position of clouds for realistic effect*/
+  .x2 {
+    left: 200px;
+    @include media-breakpoint-down(md) {
+      left: 100px;
+    }
+    -webkit-transform: scale(0.6);
+    -moz-transform: scale(0.6);
+    transform: scale(0.6);
+    opacity: 0.6; /*opacity proportional to the size*/
+    @include media-breakpoint-down(md) {
+      -webkit-transform: scale(0.3);
+      -moz-transform: scale(0.3);
+      transform: scale(0.3);
+    }
+    /*Speed will also be proportional to the size and opacity*/
+    /*More the speed. Less the time in 's' = seconds*/
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
+  }
+
+  .x3 {
+    left: -250px;
+    top: -200px;
+    @include media-breakpoint-down(md) {
+      left: -125px;
+    }
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8; /*opacity proportional to the size*/
+    @include media-breakpoint-down(md) {
+      -webkit-transform: scale(0.4);
+      -moz-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+    -webkit-animation: moveclouds 15s linear infinite;
+    -moz-animation: moveclouds 15s linear infinite;
+    -o-animation: moveclouds 15s linear infinite;
+  }
+
+  .x4 {
+    left: 470px;
+    top: -250px;
+    @include media-breakpoint-down(md) {
+      left: 235px;
+    }
+    -webkit-transform: scale(0.75);
+    -moz-transform: scale(0.75);
+    transform: scale(0.75);
+    opacity: 0.75; /*opacity proportional to the size*/
+    @include media-breakpoint-down(md) {
+      -webkit-transform: scale(0.375);
+      -moz-transform: scale(0.375);
+      transform: scale(0.375);
+    }
+    -webkit-animation: moveclouds 13s linear infinite;
+    -moz-animation: moveclouds 13s linear infinite;
+    -o-animation: moveclouds 13s linear infinite;
+  }
+
+  .x5 {
+    left: -150px;
+    top: -150px;
+    @include media-breakpoint-down(md) {
+      left: -75px;
+    }
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0.8; /*opacity proportional to the size*/
+    @include media-breakpoint-down(md) {
+      -webkit-transform: scale(0.4);
+      -moz-transform: scale(0.4);
+      transform: scale(0.4);
+    }
+    -webkit-animation: moveclouds 20s linear infinite;
+    -moz-animation: moveclouds 20s linear infinite;
+    -o-animation: moveclouds 20s linear infinite;
+  }
+
+  @keyframes moveclouds {
+    0% {
+      margin-left: 750px;
+    }
+    100% {
+      margin-left: -750px;
+    }
+  }
+  @-moz-keyframes moveclouds {
+    0% {
+      margin-left: 750px;
+    }
+    100% {
+      margin-left: -750px;
+    }
+  }
+  @-o-keyframes moveclouds {
+    0% {
+      margin-left: 750px;
+    }
+    100% {
+      margin-left: -750px;
+    }
+  }
+
+  @include media-breakpoint-down(md) {
+    @keyframes moveclouds {
+      0% {
+        margin-left: 250px;
+      }
+      100% {
+        margin-left: -250px;
+      }
+    }
+    @-moz-keyframes moveclouds {
+      0% {
+        margin-left: 250px;
+      }
+      100% {
+        margin-left: -250px;
+      }
+    }
+    @-o-keyframes moveclouds {
+      0% {
+        margin-left: 250px;
+      }
+      100% {
+        margin-left: -250px;
       }
     }
   }
@@ -226,7 +470,7 @@ a {
       span {
         position: relative;
         &:before {
-          background-color: $blue;
+          background-color: $darkblue;
           content: '';
           position: absolute;
           width: calc(100% + 4px);
@@ -238,7 +482,7 @@ a {
           transition: background-color 0.25s ease-in-out;
         }
         &:hover::before {
-          background-color: $red;
+          background-color: $darkred;
           content: '';
           position: absolute;
           width: calc(100% + 4px);
@@ -291,15 +535,17 @@ a {
 
 #skills {
   .skill-web {
+    background-color: darken($darkgray, 1%);
     transition: all 0.25s ease-in-out;
     &:hover {
-      background-color: $blue;
+      background-color: darken($darkgray, 4%);
     }
   }
   .skill-data {
+    background-color: darken($darkgray, 1%);
     transition: all 0.25s ease-in-out;
     &:hover {
-      background-color: $red;
+      background-color: darken($darkgray, 4%);
     }
   }
 }

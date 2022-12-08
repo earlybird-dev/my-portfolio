@@ -1,13 +1,14 @@
 import React from 'react';
 import web1 from '../web1.png';
 import web2 from '../web2.png';
-import web3 from '../web3.png';
 
 const Projects = () => {
   return (
     <section id="projects" className="bg-black py-5">
       <div className="container">
-        <h2 className="">Projects</h2>
+        <h2 className="">
+          <span>Projects</span>
+        </h2>
         <div className="row g-4">
           <div className="col-12 col-lg-6 ">
             <div className="project d-flex flex-column">

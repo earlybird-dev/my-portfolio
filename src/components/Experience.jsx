@@ -4,7 +4,9 @@ const Experience = () => {
   return (
     <section id="experience" className="bg-darkgray py-5">
       <div className="container">
-        <h2 className="">Experience</h2>
+        <h2 className="">
+          <span>Experience</span>
+        </h2>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem
           adipisci iure laudantium qui voluptatibus aspernatur est delectus
