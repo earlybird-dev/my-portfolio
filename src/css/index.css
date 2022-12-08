@@ -12113,7 +12113,7 @@ a:focus {
 }
 #projects .project-links a:before {
   content: "";
-  background-color: hsl(226deg, 100%, 61%);
+  background-color: hsl(357deg, 87%, 61%);
   position: absolute;
   left: 0;
   bottom: 3px;
@@ -12123,7 +12123,7 @@ a:focus {
   transition: all 0.3s ease-in-out;
 }
 #projects .project-links a:hover::before {
-  background-color: hsl(357deg, 87%, 61%);
+  background-color: hsl(226deg, 100%, 61%);
   bottom: 0;
   height: 100%;
 }

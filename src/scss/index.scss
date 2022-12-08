@@ -574,7 +574,7 @@ a {
 
       &:before {
         content: '';
-        background-color: $blue;
+        background-color: $red;
         position: absolute;
         left: 0;
         bottom: 3px;
@@ -585,7 +585,7 @@ a {
       }
 
       &:hover::before {
-        background-color: $red;
+        background-color: $blue;
         bottom: 0;
         height: 100%;
       }

@@ -3,6 +3,8 @@ import web1 from '../web1.gif';
 import web2 from '../web2.gif';
 import web3 from '../web3.gif';
 import web4 from '../web4.gif';
+import web5 from '../web5.gif';
+import web6 from '../web6.gif';
 
 const Projects = () => {
   return (
@@ -21,7 +23,7 @@ const Projects = () => {
                 </div>
                 <div className="project-img d-flex align-items-center justify-content-center">
                   <div className="overlay"></div>
-                  <img src={web1} alt="logo" className="" />
+                  <img src={web4} alt="logo" className="" />
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
@@ -67,7 +69,7 @@ const Projects = () => {
                 </div>
                 <div className="project-img d-flex align-items-center justify-content-center">
                   <div className="overlay"></div>
-                  <img src={web3} alt="logo" className="" />
+                  <img src={web6} alt="logo" className="" />
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
@@ -90,7 +92,7 @@ const Projects = () => {
                 </div>
                 <div className="project-img d-flex align-items-center justify-content-center">
                   <div className="overlay"></div>
-                  <img src={web4} alt="logo" className="" />
+                  <img src={web5} alt="logo" className="" />
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
