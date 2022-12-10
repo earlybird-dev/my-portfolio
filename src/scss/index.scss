@@ -37,6 +37,7 @@ $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
 
+// VARIABLES
 $font-primary: 'Space Grotesk', sans-serif;
 $fs-88: 5.5rem;
 $fs-72: 4.5rem;
@@ -49,6 +50,7 @@ $fs-18: 1.125rem;
 $fs-16: 1rem;
 $fs-12: 0.75rem;
 
+// MIXIN
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -57,12 +59,31 @@ $fs-12: 0.75rem;
 }
 
 @mixin transition($transition) {
-  -moz-transition: all $transition ease;
-  -o-transition: all $transition ease;
-  -webkit-transition: all $transition ease;
-  -ms-transition: all $transition ease;
-  transition: all $transition ease;
+  -moz-transition: all $transition ease-in-out;
+  -o-transition: all $transition ease-in-out;
+  -webkit-transition: all $transition ease-in-out;
+  -ms-transition: all $transition ease-in-out;
+  transition: all $transition ease-in-out;
 }
+
+@mixin transform-scale($scale) {
+  -webkit-transform: scale($scale);
+  -moz-transform: scale($scale);
+  transform: scale($scale);
+}
+
+@mixin transform-rotate($rotate) {
+  -webkit-transform: rotate($rotate);
+  -moz-transform: rotate($rotate);
+  transform: rotate($rotate);
+}
+
+@mixin moveclouds-animation($duration) {
+  -webkit-animation: moveclouds $duration linear infinite;
+  -moz-animation: moveclouds $duration linear infinite;
+  -o-animation: moveclouds $duration linear infinite;
+}
+// GENERAL
 
 html {
   box-sizing: border-box;
@@ -79,7 +100,7 @@ body {
   margin: 0;
   font-family: $font-primary;
   background-color: $black;
-  color: $lightgray;
+  color: $white;
   font-size: $fs-18;
   line-height: 1.56;
   overflow-x: hidden;
@@ -130,7 +151,7 @@ h2 {
       bottom: 0;
       z-index: -1;
       transform: rotate(-2deg);
-      transition: background-color 0.25s ease-in-out;
+      @include transition(0.25s);
     }
     &:hover::before {
       background-color: $darkred;
@@ -170,6 +191,8 @@ a {
   }
 }
 
+// HEADER
+
 .header {
   .navbar {
     .navbar-name {
@@ -187,22 +210,22 @@ a {
     }
 
     .navbar-social {
-      transform: rotate(-4deg);
+      // transform: rotate(-4deg);
+
       position: relative;
-
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
-      display: flex;
-      -webkit-box-pack: center;
-      -webkit-justify-content: center;
-      -ms-flex-pack: center;
-      justify-content: center;
-      -webkit-box-align: center;
-      -webkit-align-items: center;
-      -ms-flex-align: center;
-      align-items: center;
-
+      @include transform-rotate(-4deg);
+      // display: -webkit-box;
+      // display: -webkit-flex;
+      // display: -ms-flexbox;
+      // display: flex;
+      // -webkit-box-pack: center;
+      // -webkit-justify-content: center;
+      // -ms-flex-pack: center;
+      // justify-content: center;
+      // -webkit-box-align: center;
+      // -webkit-align-items: center;
+      // -ms-flex-align: center;
+      // align-items: center;
       .icon-3d {
         font-size: $fs-32;
         @include media-breakpoint-down(md) {
@@ -250,33 +273,36 @@ a {
     }
   }
 
+  // CLOUDS
+  // Credit to Oscar Bustos at https://codepen.io/elchiconube/pen/naxOWv
+
   #clouds {
-    // padding: 100px 0;
-    // background: #c9dbe9;
-    // background: -webkit-linear-gradient(top, #c9dbe9 0%, #fff 100%);
-    // background: -linear-gradient(top, #c9dbe9 0%, #fff 100%);
-    // background: -moz-linear-gradient(top, #c9dbe9 0%, #fff 100%);
     position: absolute;
-    top: 0;
+    top: 50px;
+    @include media-breakpoint-down(md) {
+      top: 30px;
+      padding: 50px 0px;
+    }
     z-index: -1;
-    // width: 100%;
+    // background: hsl(0, 0%, 14%);
+    padding: 100px 0px;
   }
 
-  /*Time to finalise the cloud shape*/
+  // Cloud shape
   .cloud {
+    color: $black;
+    font-size: 20px;
+    text-align: center;
     width: 200px;
     height: 60px;
     background: $white;
-    border-radius: 200px;
-    -moz-border-radius: 200px;
-    -webkit-border-radius: 200px;
     position: relative;
+    @include border-radius(200px);
   }
 
   .cloud:before,
   .cloud:after {
     content: '';
-    position: absolute;
     background: $white;
     width: 100px;
     height: 80px;
@@ -284,13 +310,8 @@ a {
     top: -15px;
     left: 10px;
 
-    border-radius: 100px;
-    -moz-border-radius: 100px;
-    -webkit-border-radius: 100px;
-
-    -webkit-transform: rotate(30deg);
-    transform: rotate(30deg);
-    -moz-transform: rotate(30deg);
+    @include border-radius(100px);
+    @include transform-rotate(30deg);
   }
 
   .cloud:after {
@@ -301,149 +322,151 @@ a {
     right: 15px;
   }
 
-  /*Time to animate*/
+  // Make animation
   .x1 {
-    -webkit-animation: moveclouds 10s linear infinite;
-    -moz-animation: moveclouds 10s linear infinite;
-    -o-animation: moveclouds 10s linear infinite;
-    opacity: 0.95; /*opacity proportional to the size*/
+    opacity: 1;
+    top: -50px;
     @include media-breakpoint-down(md) {
-      -webkit-transform: scale(0.5);
-      -moz-transform: scale(0.5);
-      transform: scale(0.5);
+      top: 100px;
+    }
+    @include moveclouds-animation(12s);
+
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.5);
     }
   }
 
-  /*variable speed, opacity, and position of clouds for realistic effect*/
   .x2 {
-    left: 200px;
-    @include media-breakpoint-down(md) {
-      left: 100px;
-    }
-    -webkit-transform: scale(0.6);
-    -moz-transform: scale(0.6);
-    transform: scale(0.6);
-    opacity: 0.6; /*opacity proportional to the size*/
-    @include media-breakpoint-down(md) {
-      -webkit-transform: scale(0.3);
-      -moz-transform: scale(0.3);
-      transform: scale(0.3);
-    }
-    /*Speed will also be proportional to the size and opacity*/
-    /*More the speed. Less the time in 's' = seconds*/
-    -webkit-animation: moveclouds 20s linear infinite;
-    -moz-animation: moveclouds 20s linear infinite;
-    -o-animation: moveclouds 20s linear infinite;
-  }
+    opacity: 0.75;
+    @include moveclouds-animation(13s);
 
-  .x3 {
-    left: -250px;
-    top: -200px;
-    @include media-breakpoint-down(md) {
-      left: -125px;
-    }
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
-    opacity: 0.8; /*opacity proportional to the size*/
-    @include media-breakpoint-down(md) {
-      -webkit-transform: scale(0.4);
-      -moz-transform: scale(0.4);
-      transform: scale(0.4);
-    }
-    -webkit-animation: moveclouds 15s linear infinite;
-    -moz-animation: moveclouds 15s linear infinite;
-    -o-animation: moveclouds 15s linear infinite;
-  }
-
-  .x4 {
     left: 470px;
-    top: -250px;
+    top: -200px;
     @include media-breakpoint-down(md) {
       left: 235px;
     }
-    -webkit-transform: scale(0.75);
-    -moz-transform: scale(0.75);
-    transform: scale(0.75);
-    opacity: 0.75; /*opacity proportional to the size*/
+    @include transform-scale(0.75);
+
     @include media-breakpoint-down(md) {
-      -webkit-transform: scale(0.375);
-      -moz-transform: scale(0.375);
-      transform: scale(0.375);
+      @include transform-scale(0.375);
     }
-    -webkit-animation: moveclouds 13s linear infinite;
-    -moz-animation: moveclouds 13s linear infinite;
-    -o-animation: moveclouds 13s linear infinite;
   }
 
-  .x5 {
+  .x3 {
+    opacity: 0.8;
+    @include moveclouds-animation(24s);
+
     left: -150px;
-    top: -150px;
+    top: -100px;
     @include media-breakpoint-down(md) {
       left: -75px;
     }
-    -webkit-transform: scale(0.8);
-    -moz-transform: scale(0.8);
-    transform: scale(0.8);
-    opacity: 0.8; /*opacity proportional to the size*/
+
+    @include transform-scale(0.8);
     @include media-breakpoint-down(md) {
-      -webkit-transform: scale(0.4);
-      -moz-transform: scale(0.4);
-      transform: scale(0.4);
+      @include transform-scale(0.4);
     }
-    -webkit-animation: moveclouds 20s linear infinite;
-    -moz-animation: moveclouds 20s linear infinite;
-    -o-animation: moveclouds 20s linear infinite;
+  }
+
+  .x4 {
+    opacity: 0.9;
+    @include moveclouds-animation(20s);
+
+    left: 200px;
+    top: 300px;
+    @include media-breakpoint-down(md) {
+      left: 100px;
+      top: 500px;
+    }
+
+    @include transform-scale(0.6);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.3);
+    }
+  }
+
+  .x5 {
+    opacity: 0.4;
+    @include moveclouds-animation(15s);
+
+    left: -350px;
+    top: 200px;
+    @include media-breakpoint-down(md) {
+      left: -125px;
+      top: 350px;
+    }
+
+    @include transform-scale(0.8);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.4);
+    }
+  }
+
+  .x6 {
+    opacity: 0.6;
+    @include moveclouds-animation(10s);
+
+    left: 250px;
+    top: 400px;
+    @include media-breakpoint-down(md) {
+      left: -125px;
+      top: 550px;
+    }
+
+    @include transform-scale(0.7);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.35);
+    }
   }
 
   @keyframes moveclouds {
     0% {
-      margin-left: 750px;
+      margin-left: 1600px;
     }
     100% {
-      margin-left: -750px;
+      margin-left: -200px;
     }
   }
   @-moz-keyframes moveclouds {
     0% {
-      margin-left: 750px;
+      margin-left: 1600px;
     }
     100% {
-      margin-left: -750px;
+      margin-left: -200px;
     }
   }
   @-o-keyframes moveclouds {
     0% {
-      margin-left: 750px;
+      margin-left: 1600px;
     }
     100% {
-      margin-left: -750px;
+      margin-left: -200px;
     }
   }
 
   @include media-breakpoint-down(md) {
     @keyframes moveclouds {
       0% {
-        margin-left: 250px;
+        margin-left: 500px;
       }
       100% {
-        margin-left: -250px;
+        margin-left: -150px;
       }
     }
     @-moz-keyframes moveclouds {
       0% {
-        margin-left: 250px;
+        margin-left: 500px;
       }
       100% {
-        margin-left: -250px;
+        margin-left: -150px;
       }
     }
     @-o-keyframes moveclouds {
       0% {
-        margin-left: 250px;
+        margin-left: 500px;
       }
       100% {
-        margin-left: -250px;
+        margin-left: -150px;
       }
     }
   }
@@ -479,7 +502,7 @@ a {
           bottom: 0;
           z-index: -1;
           transform: rotate(-2deg);
-          transition: background-color 0.25s ease-in-out;
+          @include transition(0.25s);
         }
         &:hover::before {
           background-color: $darkred;
@@ -519,7 +542,7 @@ a {
         width: 100%;
         height: 7px;
         z-index: -1;
-        transition: all 0.3s ease-in-out;
+        @include transition(0.25s);
       }
 
       &:hover::before {
@@ -536,7 +559,7 @@ a {
 #skills {
   .skill-web {
     background-color: darken($darkgray, 1%);
-    transition: all 0.25s ease-in-out;
+    @include transition(0.25s);
     &:hover {
       background-color: darken($darkgray, 4%);
     }
