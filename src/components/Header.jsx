@@ -6,7 +6,7 @@ const Header = () => {
     <>
       <header className="header min-vh-100 pb-5">
         <div className="container-fluid m-0 position-relative">
-          <div id="clouds" className="">
+          <div id="clouds" className="min-vh-100">
             <div className="cloud x1 shadow">1</div>
             <div className="cloud x2 shadow">2</div>
             <div className="cloud x3 shadow">3</div>

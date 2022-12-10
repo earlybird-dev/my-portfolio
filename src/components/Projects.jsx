@@ -10,9 +10,7 @@ const Projects = () => {
   return (
     <section id="projects" className="bg-black py-5">
       <div className="container">
-        <h2 className="">
-          <span>Projects</span>
-        </h2>
+        <h2 className="highlight">Projects </h2>
         <div className="row g-4">
           <div className="col-12 col-lg-6 ">
             <div className="project d-flex flex-column">
@@ -27,7 +25,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
-                <div className="project-name">Project 1</div>
+                <div className="project-name">Tasmanian Berries Website</div>
                 <div className="project-skills text-gray d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>
@@ -50,7 +48,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
-                <div className="project-name">Project 2</div>
+                <div className="project-name">Tasmanian Berries Web Apps</div>
                 <div className="project-skills text-gray d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>
@@ -73,7 +71,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
-                <div className="project-name">Project 3</div>
+                <div className="project-name">PointsBet Clone</div>
                 <div className="project-skills text-gray d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>
@@ -96,7 +94,7 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
-                <div className="project-name">Project 4</div>
+                <div className="project-name">Data Science Blog</div>
                 <div className="project-skills text-gray d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>

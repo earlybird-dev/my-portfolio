@@ -4,9 +4,7 @@ const Skills = () => {
   return (
     <section id="skills" className="bg-darkgray py-5">
       <div className="container">
-        <h2 className="">
-          <span>Skills</span>
-        </h2>
+        <h2 className="highlight">Skills</h2>
         <div className="row gx-3">
           <div className="col-6 col-md-4 ">
             <div className="skill-web d-flex flex-column mb-3 m-md-3 m-lg-4 p-3 p-md-4 p-lg-5 rounded-4 shadow">
