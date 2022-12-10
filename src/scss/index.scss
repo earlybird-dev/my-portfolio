@@ -280,7 +280,6 @@ a {
     position: absolute;
     top: 50px;
     @include media-breakpoint-down(md) {
-      top: 30px;
       padding: 50px 0px;
     }
     z-index: -1;
@@ -325,10 +324,6 @@ a {
   // Make animation
   .x1 {
     opacity: 1;
-    top: -50px;
-    @include media-breakpoint-down(md) {
-      top: 100px;
-    }
     @include moveclouds-animation(12s);
 
     @include media-breakpoint-down(md) {
@@ -337,27 +332,58 @@ a {
   }
 
   .x2 {
-    opacity: 0.75;
-    @include moveclouds-animation(13s);
+    opacity: 0.6;
+    @include moveclouds-animation(20s);
 
-    left: 470px;
-    top: -200px;
+    left: 200px;
     @include media-breakpoint-down(md) {
-      left: 235px;
+      left: 100px;
     }
-    @include transform-scale(0.75);
 
+    @include transform-scale(0.5);
     @include media-breakpoint-down(md) {
-      @include transform-scale(0.375);
+      @include transform-scale(0.25);
     }
   }
 
   .x3 {
     opacity: 0.8;
+    @include moveclouds-animation(15s);
+
+    left: -450px;
+    top: -200px;
+    @include media-breakpoint-down(md) {
+      left: -125px;
+    }
+
+    @include transform-scale(0.7);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.35);
+    }
+  }
+
+  .x4 {
+    opacity: 0.75;
+    @include moveclouds-animation(13s);
+
+    left: 470px;
+    top: -250px;
+    @include media-breakpoint-down(md) {
+      left: 235px;
+    }
+    @include transform-scale(0.65);
+
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.325);
+    }
+  }
+
+  .x5 {
+    opacity: 0.8;
     @include moveclouds-animation(24s);
 
     left: -150px;
-    top: -100px;
+    top: -150px;
     @include media-breakpoint-down(md) {
       left: -75px;
     }
@@ -365,57 +391,6 @@ a {
     @include transform-scale(0.8);
     @include media-breakpoint-down(md) {
       @include transform-scale(0.4);
-    }
-  }
-
-  .x4 {
-    opacity: 0.7;
-    @include moveclouds-animation(14s);
-
-    left: -350px;
-    top: 200px;
-    @include media-breakpoint-down(md) {
-      left: -125px;
-      top: 350px;
-    }
-
-    @include transform-scale(0.6);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.3);
-    }
-  }
-
-  .x5 {
-    opacity: 0.4;
-    @include moveclouds-animation(12s);
-
-    left: 200px;
-    top: 300px;
-    @include media-breakpoint-down(md) {
-      left: 100px;
-      top: 400px;
-    }
-
-    @include transform-scale(0.8);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.4);
-    }
-  }
-
-  .x6 {
-    opacity: 0.6;
-    @include moveclouds-animation(10s);
-
-    left: 250px;
-    top: 400px;
-    @include media-breakpoint-down(md) {
-      left: -125px;
-      top: 450px;
-    }
-
-    @include transform-scale(0.7);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.35);
     }
   }
 
@@ -447,26 +422,26 @@ a {
   @include media-breakpoint-down(md) {
     @keyframes moveclouds {
       0% {
-        margin-left: 500px;
+        margin-left: 450px;
       }
       100% {
-        margin-left: -150px;
+        margin-left: -200px;
       }
     }
     @-moz-keyframes moveclouds {
       0% {
-        margin-left: 500px;
+        margin-left: 450px;
       }
       100% {
-        margin-left: -150px;
+        margin-left: -200px;
       }
     }
     @-o-keyframes moveclouds {
       0% {
-        margin-left: 500px;
+        margin-left: 450px;
       }
       100% {
-        margin-left: -150px;
+        margin-left: -200px;
       }
     }
   }

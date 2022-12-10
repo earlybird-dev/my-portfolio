@@ -7,12 +7,11 @@ const Header = () => {
       <header className="header min-vh-100 pb-5">
         <div className="container-fluid m-0 position-relative">
           <div id="clouds" className="">
-            <div className="cloud x1">1</div>
-            <div className="cloud x2">2</div>
-            <div className="cloud x3">3</div>
-            <div className="cloud x4">4</div>
-            <div className="cloud x5">5</div>
-            <div className="cloud x6">6</div>
+            <div className="cloud x1 shadow">1</div>
+            <div className="cloud x2 shadow">2</div>
+            <div className="cloud x3 shadow">3</div>
+            <div className="cloud x4 shadow">4</div>
+            <div className="cloud x5 shadow">5</div>
           </div>
         </div>
         <div className="container">
