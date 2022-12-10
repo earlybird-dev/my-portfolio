@@ -369,14 +369,14 @@ a {
   }
 
   .x4 {
-    opacity: 0.9;
-    @include moveclouds-animation(20s);
+    opacity: 0.7;
+    @include moveclouds-animation(14s);
 
-    left: 200px;
-    top: 300px;
+    left: -350px;
+    top: 200px;
     @include media-breakpoint-down(md) {
-      left: 100px;
-      top: 500px;
+      left: -125px;
+      top: 350px;
     }
 
     @include transform-scale(0.6);
@@ -387,13 +387,13 @@ a {
 
   .x5 {
     opacity: 0.4;
-    @include moveclouds-animation(15s);
+    @include moveclouds-animation(12s);
 
-    left: -350px;
-    top: 200px;
+    left: 200px;
+    top: 300px;
     @include media-breakpoint-down(md) {
-      left: -125px;
-      top: 350px;
+      left: 100px;
+      top: 400px;
     }
 
     @include transform-scale(0.8);
@@ -410,7 +410,7 @@ a {
     top: 400px;
     @include media-breakpoint-down(md) {
       left: -125px;
-      top: 550px;
+      top: 450px;
     }
 
     @include transform-scale(0.7);
