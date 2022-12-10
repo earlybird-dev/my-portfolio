@@ -11838,7 +11838,7 @@ a:focus {
   right: 15px;
 }
 .header .x1 {
-  opacity: 1;
+  opacity: 0.9;
   -webkit-animation: moveclouds 12s linear infinite;
   -moz-animation: moveclouds 12s linear infinite;
   -o-animation: moveclouds 12s linear infinite;
@@ -11851,7 +11851,7 @@ a:focus {
   }
 }
 .header .x2 {
-  opacity: 0.6;
+  opacity: 0.65;
   -webkit-animation: moveclouds 20s linear infinite;
   -moz-animation: moveclouds 20s linear infinite;
   -o-animation: moveclouds 20s linear infinite;
@@ -11873,7 +11873,7 @@ a:focus {
   }
 }
 .header .x3 {
-  opacity: 0.8;
+  opacity: 0.85;
   -webkit-animation: moveclouds 15s linear infinite;
   -moz-animation: moveclouds 15s linear infinite;
   -o-animation: moveclouds 15s linear infinite;

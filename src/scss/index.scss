@@ -323,7 +323,7 @@ a {
 
   // Make animation
   .x1 {
-    opacity: 1;
+    opacity: 0.9;
     @include moveclouds-animation(12s);
 
     @include media-breakpoint-down(md) {
@@ -332,7 +332,7 @@ a {
   }
 
   .x2 {
-    opacity: 0.6;
+    opacity: 0.65;
     @include moveclouds-animation(20s);
 
     left: 200px;
@@ -347,7 +347,7 @@ a {
   }
 
   .x3 {
-    opacity: 0.8;
+    opacity: 0.85;
     @include moveclouds-animation(15s);
 
     left: -450px;
