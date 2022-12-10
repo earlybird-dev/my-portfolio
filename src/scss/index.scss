@@ -199,17 +199,29 @@ a {
     .navbar-social {
       position: relative;
       .icon-3d {
-        font-size: $fs-32;
-        @include media-breakpoint-down(md) {
-          font-size: $fs-18;
-        }
-        @include icon3d-animation(2s);
-
         padding: 10px;
-
+        font-size: $fs-32;
         color: $white;
+
+        @include icon3d-animation(2s);
         &:hover {
           @include icon3d-animation(200ms);
+        }
+
+        @include media-breakpoint-down(md) {
+          font-size: $fs-18;
+          @include transform-rotate(-4deg);
+
+          &:after {
+            background-color: $red;
+            content: '';
+            position: absolute;
+            width: calc(100% + 20px);
+            height: 200%;
+            left: -10px;
+            bottom: 20px;
+            z-index: -1;
+          }
         }
       }
 
@@ -228,20 +240,6 @@ a {
         }
         100% {
           text-shadow: -5px 0 $darkred, 5px -4px $darkblue;
-        }
-      }
-      @include media-breakpoint-down(md) {
-        @include transform-rotate(-2deg);
-
-        &:before {
-          background-color: $red;
-          content: '';
-          position: absolute;
-          width: calc(100% + 20px);
-          height: 200%;
-          left: -10px;
-          bottom: 10px;
-          z-index: -1;
         }
       }
     }

@@ -11735,20 +11735,33 @@ a:focus, a:visited, a:hover {
   position: relative;
 }
 .header .navbar .navbar-social .icon-3d {
+  padding: 10px;
   font-size: 2rem;
+  color: hsl(0deg, 0%, 100%);
   -webkit-animation: icon3d 2s infinite;
   animation: icon3d 2s infinite;
-  padding: 10px;
-  color: hsl(0deg, 0%, 100%);
-}
-@media (max-width: 767.98px) {
-  .header .navbar .navbar-social .icon-3d {
-    font-size: 1.125rem;
-  }
 }
 .header .navbar .navbar-social .icon-3d:hover {
   -webkit-animation: icon3d 200ms infinite;
   animation: icon3d 200ms infinite;
+}
+@media (max-width: 767.98px) {
+  .header .navbar .navbar-social .icon-3d {
+    font-size: 1.125rem;
+    -webkit-transform: rotate(-4deg);
+    -moz-transform: rotate(-4deg);
+    transform: rotate(-4deg);
+  }
+  .header .navbar .navbar-social .icon-3d:after {
+    background-color: hsl(357deg, 87%, 61%);
+    content: "";
+    position: absolute;
+    width: calc(100% + 20px);
+    height: 200%;
+    left: -10px;
+    bottom: 20px;
+    z-index: -1;
+  }
 }
 @keyframes icon3d {
   0% {
@@ -11765,23 +11778,6 @@ a:focus, a:visited, a:hover {
   }
   100% {
     text-shadow: -5px 0 hsl(357deg, 77%, 50%), 5px -4px hsl(216deg, 81%, 29%);
-  }
-}
-@media (max-width: 767.98px) {
-  .header .navbar .navbar-social {
-    -webkit-transform: rotate(-2deg);
-    -moz-transform: rotate(-2deg);
-    transform: rotate(-2deg);
-  }
-  .header .navbar .navbar-social:before {
-    background-color: hsl(357deg, 87%, 61%);
-    content: "";
-    position: absolute;
-    width: calc(100% + 20px);
-    height: 200%;
-    left: -10px;
-    bottom: 10px;
-    z-index: -1;
   }
 }
 .header #clouds {
