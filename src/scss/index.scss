@@ -193,12 +193,11 @@ a {
 }
 
 // HEADER
-
 .header {
   .navbar {
     .navbar-name {
       a {
-        text-shadow: 3px 2px $darkred, -2px -3px $darkblue;
+        // text-shadow: 3px 2px $darkred, -2px -3px $darkblue;
       }
     }
     .navbar-social {
@@ -255,16 +254,25 @@ a {
   // Credit to The Brutal Tooth at https://codepen.io/TheBrutalTooth/pen/KWwgQo
   #sunrise,
   .sun,
-  .bird,
-  .birdr1,
-  .birdr {
+  .bird1-l,
+  .bird1-r,
+  .bird2-l,
+  .bird2-r {
     position: absolute;
+  }
+
+  .bird1-l,
+  .bird1-r,
+  .bird2-l,
+  .bird2-r {
+    left: -15%;
   }
 
   #sunrise {
     width: 100%;
     height: 400px;
-    overflow: hidden;
+    overflow-x: hidden;
+    // margin-left: 100px;
   }
 
   .sun {
@@ -292,16 +300,6 @@ a {
     }
   }
 
-  .light {
-    opacity: 0.5;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(at 50% 0%, #ff0, transparent);
-    z-index: 60;
-    animation: over 12s ease forwards;
-  }
-
   @keyframes over {
     0% {
       opacity: 0;
@@ -311,10 +309,10 @@ a {
     }
   }
 
-  .bird {
+  .bird1-l {
+    z-index: 70;
     opacity: 1;
-    bottom: 50px;
-    left: 00px;
+    top: 20%;
     width: 20px;
     height: 16px;
     border: 2px solid black;
@@ -324,13 +322,12 @@ a {
     border-bottom-color: transparent;
     transform: rotateZ(-75deg);
     animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
-    z-index: 70;
   }
 
-  .birdr {
+  .bird1-r {
     z-index: 70;
     opacity: 1;
-    bottom: 50px;
+    top: 20%;
     width: 20px;
     height: 16px;
     border: 2px solid black;
@@ -339,14 +336,14 @@ a {
     border-right-color: transparent;
     border-top-color: transparent;
     transform: rotateZ(75deg);
-    margin: 0px 8px;
+    margin: 0px 12px;
     animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
   }
 
-  .bird1 {
+  .bird2-l {
+    z-index: 70;
     opacity: 1;
-    bottom: 50px;
-    left: 0px;
+    top: 22%;
     width: 20px;
     height: 16px;
     border: 2px solid black;
@@ -354,17 +351,15 @@ a {
     border-top-color: transparent;
     border-left-color: transparent;
     border-bottom-color: transparent;
-    transform: rotateZ(-90deg);
-    animation: move 25s linear infinite 1.5s,
-      flap 0.5s linear alternate infinite 1.5s;
-    z-index: 70;
+    transform: rotateZ(-75deg);
+    animation: move 25s linear infinite 1s,
+      flap 0.5s linear alternate infinite 1s;
   }
 
-  .birdr1 {
+  .bird2-r {
     z-index: 70;
     opacity: 1;
-    bottom: 50px;
-    left: -40px;
+    top: 22%;
     width: 20px;
     height: 16px;
     border: 2px solid black;
@@ -372,11 +367,99 @@ a {
     border-bottom-color: transparent;
     border-right-color: transparent;
     border-top-color: transparent;
-    transform: rotateZ(90deg);
-    margin: 0px 10px;
-    animation: mover 25s linear infinite 1.5s,
-      flap 0.5s linear alternate infinite 1.5s;
+    transform: rotateZ(75deg);
+    margin: 0px 12px;
+    animation: move 25s linear infinite 1s,
+      flap 0.5s linear alternate infinite 1s;
   }
+
+  // .bird1 {
+  //   opacity: 1;
+  //   // bottom: 50px;
+  //   top: 20%;
+  //   left: 0px;
+  //   width: 20px;
+  //   height: 16px;
+  //   border: 2px solid black;
+  //   border-radius: 50%;
+  //   border-top-color: transparent;
+  //   border-left-color: transparent;
+  //   border-bottom-color: transparent;
+  //   transform: rotateZ(-90deg);
+  //   animation: move 25s linear infinite 1.5s,
+  //     flap 0.5s linear alternate infinite 1.5s;
+  //   z-index: 70;
+  // }
+
+  // .bird2 {
+  //   opacity: 1;
+  //   // bottom: 50px;
+  //   top: 23%;
+  //   width: 20px;
+  //   height: 16px;
+  //   border: 2px solid black;
+  //   border-radius: 50%;
+  //   border-top-color: transparent;
+  //   border-left-color: transparent;
+  //   border-bottom-color: transparent;
+  //   transform: rotateZ(-75deg);
+  //   animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
+  //   z-index: 70;
+  // }
+
+  // .birdr2 {
+  //   z-index: 70;
+  //   opacity: 1;
+  //   // bottom: 50px;
+  //   top: 23%;
+  //   width: 20px;
+  //   height: 16px;
+  //   border: 2px solid black;
+  //   border-radius: 50%;
+  //   border-bottom-color: transparent;
+  //   border-right-color: transparent;
+  //   border-top-color: transparent;
+  //   transform: rotateZ(75deg);
+  //   margin: 0px 8px;
+  //   animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
+  // }
+
+  // .bird12 {
+  //   opacity: 1;
+  //   // bottom: 50px;
+  //   top: 20%;
+  //   left: -40px;
+  //   width: 20px;
+  //   height: 16px;
+  //   border: 2px solid black;
+  //   border-radius: 50%;
+  //   border-top-color: transparent;
+  //   border-left-color: transparent;
+  //   border-bottom-color: transparent;
+  //   transform: rotateZ(-90deg);
+  //   animation: move 25s linear infinite 1.5s,
+  //     flap 0.5s linear alternate infinite 1.5s;
+  //   z-index: 70;
+  // }
+
+  // .birdr1 {
+  //   z-index: 70;
+  //   opacity: 1;
+  //   // bottom: 50px;
+  //   top: 20%;
+  //   left: -40px;
+  //   width: 20px;
+  //   height: 16px;
+  //   border: 2px solid black;
+  //   border-radius: 50%;
+  //   border-bottom-color: transparent;
+  //   border-right-color: transparent;
+  //   border-top-color: transparent;
+  //   transform: rotateZ(90deg);
+  //   margin: 0px 10px;
+  //   animation: mover 25s linear infinite 1.5s,
+  //     flap 0.5s linear alternate infinite 1.5s;
+  // }
 
   @keyframes move {
     0% {
@@ -567,9 +650,9 @@ a {
       top: 300px;
     }
 
-    @include transform-scale(1);
+    @include transform-scale(0.8);
     @include media-breakpoint-down(md) {
-      @include transform-scale(0.8);
+      @include transform-scale(0.6);
     }
   }
 
@@ -625,6 +708,7 @@ a {
     }
   }
 
+  // INTRO
   .intro {
     position: relative;
     .logo {
@@ -709,20 +793,32 @@ a {
 }
 
 // SKILLS
-
 #skills {
-  .skill-web {
+  .skill {
+    text-align: center;
+    // cursor: pointer;
+    outline: none;
+    box-shadow: 0 18px rgba($black, 0.5);
     background-color: darken($darkgray, 1%);
     @include transition(0.25s);
     &:hover {
       background-color: darken($darkgray, 4%);
+      box-shadow: 0 18px rgba($black, 0.9);
     }
-  }
-  .skill-data {
-    background-color: darken($darkgray, 1%);
-    transition: all 0.25s ease-in-out;
-    &:hover {
-      background-color: darken($darkgray, 4%);
+
+    @include media-breakpoint-down(md) {
+      box-shadow: 0 7px rgba($black, 0.5);
+      &:hover {
+        background-color: darken($darkgray, 4%);
+        box-shadow: 0 7px rgba($black, 0.9);
+      }
+    }
+
+    p {
+      font-size: $fs-24;
+      @include media-breakpoint-down(md) {
+        font-size: 14px;
+      }
     }
   }
 }
@@ -798,7 +894,7 @@ a {
     .project-skills {
       color: rgba($white, 0.5);
       font-weight: light;
-      line-height: 1rem;
+      line-height: 0.8rem;
       margin-top: 1.2rem;
       text-transform: uppercase;
       @include media-breakpoint-down(sm) {

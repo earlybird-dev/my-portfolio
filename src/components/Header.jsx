@@ -5,16 +5,13 @@ const Header = () => {
   return (
     <>
       <header className="header min-vh-100 pb-5">
-        <div className="container-fluid m-0">
-          <div id="sunrise" className="min-vh-100">
+        <div className=" m-0">
+          <div id="sunrise" className="min-vh-100 m-0">
             <div className="sun"></div>
-            <div className="bird1"></div>
-            <div className="birdr1"></div>
-            <div className="bird"></div>
-            <div className="birdr"></div>
-            {/* <div className="fin">
-              <div className="wave"></div>
-            </div> */}
+            <div className="bird1-l"></div>
+            <div className="bird1-r"></div>
+            <div className="bird2-l"></div>
+            <div className="bird2-r"></div>
           </div>
         </div>
         <div className="container-fluid m-0 position-relative">
@@ -23,10 +20,10 @@ const Header = () => {
             <div className="cloud x2 shadow"></div>
             <div className="cloud x3 shadow"></div>
             <div className="cloud x4 shadow"></div>
-            <div className="cloud x5 shadow"></div>
+            {/* <div className="cloud x5 shadow"></div> */}
             {/* <div className="cloud x6 shadow">Python</div>
             <div className="cloud x7 shadow">SQL</div> */}
-            <div className="cloud x8 shadow"></div>
+            {/* <div className="cloud x8 shadow"></div> */}
           </div>
         </div>
         <div className="container">
