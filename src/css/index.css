@@ -11731,6 +11731,9 @@ a:focus, a:visited, a:hover {
   color: hsl(0deg, 0%, 100%);
 }
 
+.header .navbar .navbar-name a {
+  text-shadow: 3px 2px hsl(357deg, 77%, 50%), -2px -3px hsl(216deg, 81%, 29%);
+}
 .header .navbar .navbar-social {
   position: relative;
 }
@@ -11738,8 +11741,10 @@ a:focus, a:visited, a:hover {
   padding: 10px;
   font-size: 2rem;
   color: hsl(0deg, 0%, 100%);
-  -webkit-animation: icon3d 2s infinite;
-  animation: icon3d 2s infinite;
+  text-shadow: 5px 4px hsl(357deg, 77%, 50%), -5px -6px hsl(216deg, 81%, 29%);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  transform: rotate(-4deg);
 }
 .header .navbar .navbar-social .icon-3d:hover {
   -webkit-animation: icon3d 200ms infinite;
@@ -11748,19 +11753,6 @@ a:focus, a:visited, a:hover {
 @media (max-width: 767.98px) {
   .header .navbar .navbar-social .icon-3d {
     font-size: 1.125rem;
-    -webkit-transform: rotate(-4deg);
-    -moz-transform: rotate(-4deg);
-    transform: rotate(-4deg);
-  }
-  .header .navbar .navbar-social .icon-3d:after {
-    background-color: hsl(357deg, 87%, 61%);
-    content: "";
-    position: absolute;
-    width: calc(100% + 20px);
-    height: 200%;
-    left: -10px;
-    bottom: 20px;
-    z-index: -1;
   }
 }
 @keyframes icon3d {
@@ -11780,13 +11772,154 @@ a:focus, a:visited, a:hover {
     text-shadow: -5px 0 hsl(357deg, 77%, 50%), 5px -4px hsl(216deg, 81%, 29%);
   }
 }
+.header #sunrise,
+.header .sun,
+.header .bird,
+.header .birdr1,
+.header .birdr {
+  position: absolute;
+}
+.header #sunrise {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+}
+.header .sun {
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  left: 85%;
+  z-index: -1;
+  background: linear-gradient(#ff0, #d00);
+  box-shadow: 0 0 7px 1px #f20, 0 0 15px 3px #f33;
+  animation: rise 12s ease forwards;
+}
+@media (max-width: 767.98px) {
+  .header .sun {
+    width: 70px;
+    height: 70px;
+  }
+}
+@keyframes rise {
+  0% {
+    top: 40%;
+  }
+  100% {
+    top: 15%;
+  }
+}
+.header .light {
+  opacity: 0.5;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(at 50% 0%, #ff0, transparent);
+  z-index: 60;
+  animation: over 12s ease forwards;
+}
+@keyframes over {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0.2;
+  }
+}
+.header .bird {
+  opacity: 1;
+  bottom: 50px;
+  left: 0px;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ(-75deg);
+  animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
+  z-index: 70;
+}
+.header .birdr {
+  z-index: 70;
+  opacity: 1;
+  bottom: 50px;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  transform: rotateZ(75deg);
+  margin: 0px 8px;
+  animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
+}
+.header .bird1 {
+  opacity: 1;
+  bottom: 50px;
+  left: 0px;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ(-90deg);
+  animation: move 25s linear infinite 1.5s, flap 0.5s linear alternate infinite 1.5s;
+  z-index: 70;
+}
+.header .birdr1 {
+  z-index: 70;
+  opacity: 1;
+  bottom: 50px;
+  left: -40px;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  transform: rotateZ(90deg);
+  margin: 0px 10px;
+  animation: mover 25s linear infinite 1.5s, flap 0.5s linear alternate infinite 1.5s;
+}
+@keyframes move {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes mover {
+  0% {
+    left: 0px;
+  }
+  100% {
+    left: 100%;
+  }
+}
+@keyframes flap {
+  0% {
+    border-radius: 90%;
+  }
+  100% {
+    border-radius: 10%;
+  }
+}
 .header #clouds {
   position: absolute;
   z-index: -1;
+  padding: 100px 0px;
 }
 .header .cloud {
-  color: hsl(0deg, 0%, 8%);
-  font-size: 20px;
+  color: rgba(20, 20, 20, 0.5);
+  font-size: 28px;
+  text-transform: uppercase;
+  font-weight: light;
   text-align: center;
   width: 200px;
   height: 60px;
@@ -11797,6 +11930,12 @@ a:focus, a:visited, a:hover {
   -ms-border-radius: 200px;
   border-radius: 200px;
 }
+@media (max-width: 767.98px) {
+  .header .cloud {
+    color: rgba(20, 20, 20, 0.5);
+    font-size: 24px;
+  }
+}
 .header .cloud:before,
 .header .cloud:after {
   content: "";
@@ -11806,6 +11945,7 @@ a:focus, a:visited, a:hover {
   position: absolute;
   top: -15px;
   left: 10px;
+  z-index: -1;
   -webkit-border-radius: 100px;
   -moz-border-radius: 100px;
   -ms-border-radius: 100px;
@@ -11823,9 +11963,12 @@ a:focus, a:visited, a:hover {
 }
 .header .x1 {
   opacity: 0.9;
-  -webkit-animation: moving-clouds 12s linear infinite;
-  -moz-animation: moving-clouds 12s linear infinite;
-  -o-animation: moving-clouds 12s linear infinite;
+  -webkit-animation: moving-clouds 16s linear infinite;
+  -moz-animation: moving-clouds 16s linear infinite;
+  -o-animation: moving-clouds 16s linear infinite;
+  -webkit-transform: scale(0.8);
+  -moz-transform: scale(0.8);
+  transform: scale(0.8);
 }
 @media (max-width: 767.98px) {
   .header .x1 {
@@ -11861,15 +12004,15 @@ a:focus, a:visited, a:hover {
   -webkit-animation: moving-clouds 15s linear infinite;
   -moz-animation: moving-clouds 15s linear infinite;
   -o-animation: moving-clouds 15s linear infinite;
-  -webkit-transform: scale(0.7);
-  -moz-transform: scale(0.7);
-  transform: scale(0.7);
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
 }
 @media (max-width: 767.98px) {
   .header .x3 {
-    -webkit-transform: scale(0.35);
-    -moz-transform: scale(0.35);
-    transform: scale(0.35);
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
   }
 }
 .header .x4 {
@@ -11900,9 +12043,9 @@ a:focus, a:visited, a:hover {
   -moz-animation: moving-clouds 24s linear infinite;
   -o-animation: moving-clouds 24s linear infinite;
   left: -370px;
-  -webkit-transform: scale(0.8);
-  -moz-transform: scale(0.8);
-  transform: scale(0.8);
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7);
 }
 @media (max-width: 767.98px) {
   .header .x5 {
@@ -11911,9 +12054,79 @@ a:focus, a:visited, a:hover {
 }
 @media (max-width: 767.98px) {
   .header .x5 {
-    -webkit-transform: scale(0.4);
-    -moz-transform: scale(0.4);
-    transform: scale(0.4);
+    -webkit-transform: scale(0.35);
+    -moz-transform: scale(0.35);
+    transform: scale(0.35);
+  }
+}
+.header .x6 {
+  opacity: 0.5;
+  -webkit-animation: moving-clouds 18s linear infinite;
+  -moz-animation: moving-clouds 18s linear infinite;
+  -o-animation: moving-clouds 18s linear infinite;
+  left: 150px;
+  -webkit-transform: scale(0.6);
+  -moz-transform: scale(0.6);
+  transform: scale(0.6);
+}
+@media (max-width: 767.98px) {
+  .header .x6 {
+    left: 75px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header .x6 {
+    -webkit-transform: scale(0.3);
+    -moz-transform: scale(0.3);
+    transform: scale(0.3);
+  }
+}
+.header .x7 {
+  opacity: 0.6;
+  -webkit-animation: moving-clouds 22s linear infinite;
+  -moz-animation: moving-clouds 22s linear infinite;
+  -o-animation: moving-clouds 22s linear infinite;
+  left: 270px;
+  -webkit-transform: scale(0.7);
+  -moz-transform: scale(0.7);
+  transform: scale(0.7);
+}
+@media (max-width: 767.98px) {
+  .header .x7 {
+    left: 135px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header .x7 {
+    -webkit-transform: scale(0.35);
+    -moz-transform: scale(0.35);
+    transform: scale(0.35);
+  }
+}
+.header .x8 {
+  padding: 0px 20px;
+  font-size: 1rem;
+  opacity: 0.9;
+  -webkit-animation: moving-clouds 30s linear infinite;
+  -moz-animation: moving-clouds 30s linear infinite;
+  -o-animation: moving-clouds 30s linear infinite;
+  left: -200px;
+  top: 200px;
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  transform: scale(1);
+}
+@media (max-width: 767.98px) {
+  .header .x8 {
+    left: -100px;
+    top: 300px;
+  }
+}
+@media (max-width: 767.98px) {
+  .header .x8 {
+    -webkit-transform: scale(0.8);
+    -moz-transform: scale(0.8);
+    transform: scale(0.8);
   }
 }
 @keyframes moving-clouds {
@@ -12139,7 +12352,10 @@ a:focus, a:visited, a:hover {
   }
 }
 #projects .project-info .project-skills {
+  color: rgba(255, 255, 255, 0.5);
   font-weight: light;
+  line-height: 1rem;
+  margin-top: 1.2rem;
   text-transform: uppercase;
 }
 @media (max-width: 575.98px) {

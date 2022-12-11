@@ -5,21 +5,38 @@ const Header = () => {
   return (
     <>
       <header className="header min-vh-100 pb-5">
+        <div className="container-fluid m-0">
+          <div id="sunrise" className="min-vh-100">
+            <div className="sun"></div>
+            <div className="bird1"></div>
+            <div className="birdr1"></div>
+            <div className="bird"></div>
+            <div className="birdr"></div>
+            {/* <div className="fin">
+              <div className="wave"></div>
+            </div> */}
+          </div>
+        </div>
         <div className="container-fluid m-0 position-relative">
           <div id="clouds" className="min-vh-100">
-            <div className="cloud x1 shadow">1</div>
-            <div className="cloud x2 shadow">2</div>
-            <div className="cloud x3 shadow">3</div>
-            <div className="cloud x4 shadow">4</div>
-            <div className="cloud x5 shadow">5</div>
+            <div className="cloud x1 shadow"></div>
+            <div className="cloud x2 shadow"></div>
+            <div className="cloud x3 shadow"></div>
+            <div className="cloud x4 shadow"></div>
+            <div className="cloud x5 shadow"></div>
+            {/* <div className="cloud x6 shadow">Python</div>
+            <div className="cloud x7 shadow">SQL</div> */}
+            <div className="cloud x8 shadow"></div>
           </div>
         </div>
         <div className="container">
-          <div className="navbar d-flex flex-column-reverse flex-sm-row justify-content-between mb-1 mb-sm-5 animate__animated  animate__backInDown animate__delay-1s">
+          <div className="navbar d-flex justify-content-between mb-1 mb-sm-5 animate__animated  animate__backInDown animate__delay-1s">
             <div className="navbar-name">
-              <a href="/#">early-bird.dev</a>
+              <a href="/#" className="">
+                early-bird.dev
+              </a>
             </div>
-            <div className="navbar-social d-flex align-items-center justify-content-center gap-2 gap-md-4 pb-1 pb-md-3 ">
+            <div className="navbar-social d-flex align-items-center justify-content-center gap-1 gap-md-4 pb-1 pb-md-3 ">
               <a
                 href="https://github.com/earlybird-dev"
                 rel="noreferrer"

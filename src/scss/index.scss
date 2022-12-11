@@ -196,32 +196,38 @@ a {
 
 .header {
   .navbar {
+    .navbar-name {
+      a {
+        text-shadow: 3px 2px $darkred, -2px -3px $darkblue;
+      }
+    }
     .navbar-social {
       position: relative;
       .icon-3d {
         padding: 10px;
         font-size: $fs-32;
         color: $white;
+        text-shadow: 5px 4px $darkred, -5px -6px $darkblue;
+        @include transform-rotate(-4deg);
 
-        @include icon3d-animation(2s);
+        // @include icon3d-animation(2s);
         &:hover {
           @include icon3d-animation(200ms);
         }
 
         @include media-breakpoint-down(md) {
           font-size: $fs-18;
-          @include transform-rotate(-4deg);
 
-          &:after {
-            background-color: $red;
-            content: '';
-            position: absolute;
-            width: calc(100% + 20px);
-            height: 200%;
-            left: -10px;
-            bottom: 20px;
-            z-index: -1;
-          }
+          // &:after {
+          //   background-color: $red;
+          //   content: '';
+          //   position: absolute;
+          //   width: calc(100% + 20px);
+          //   height: 200%;
+          //   left: -10px;
+          //   bottom: 20px;
+          //   z-index: -1;
+          // }
         }
       }
 
@@ -245,20 +251,181 @@ a {
     }
   }
 
+  // SUNRISE
+  // Credit to The Brutal Tooth at https://codepen.io/TheBrutalTooth/pen/KWwgQo
+  #sunrise,
+  .sun,
+  .bird,
+  .birdr1,
+  .birdr {
+    position: absolute;
+  }
+
+  #sunrise {
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+  }
+
+  .sun {
+    width: 140px;
+    height: 140px;
+    @include media-breakpoint-down(md) {
+      width: 70px;
+      height: 70px;
+    }
+
+    border-radius: 50%;
+    left: 85%;
+    z-index: -1;
+    background: linear-gradient(#ff0, #d00);
+    box-shadow: 0 0 7px 1px #f20, 0 0 15px 3px #f33;
+    animation: rise 12s ease forwards;
+  }
+
+  @keyframes rise {
+    0% {
+      top: 40%;
+    }
+    100% {
+      top: 15%;
+    }
+  }
+
+  .light {
+    opacity: 0.5;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(at 50% 0%, #ff0, transparent);
+    z-index: 60;
+    animation: over 12s ease forwards;
+  }
+
+  @keyframes over {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 0.2;
+    }
+  }
+
+  .bird {
+    opacity: 1;
+    bottom: 50px;
+    left: 00px;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotateZ(-75deg);
+    animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
+    z-index: 70;
+  }
+
+  .birdr {
+    z-index: 70;
+    opacity: 1;
+    bottom: 50px;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    transform: rotateZ(75deg);
+    margin: 0px 8px;
+    animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
+  }
+
+  .bird1 {
+    opacity: 1;
+    bottom: 50px;
+    left: 0px;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotateZ(-90deg);
+    animation: move 25s linear infinite 1.5s,
+      flap 0.5s linear alternate infinite 1.5s;
+    z-index: 70;
+  }
+
+  .birdr1 {
+    z-index: 70;
+    opacity: 1;
+    bottom: 50px;
+    left: -40px;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    transform: rotateZ(90deg);
+    margin: 0px 10px;
+    animation: mover 25s linear infinite 1.5s,
+      flap 0.5s linear alternate infinite 1.5s;
+  }
+
+  @keyframes move {
+    0% {
+      left: 0px;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes mover {
+    0% {
+      left: -0px;
+    }
+    100% {
+      left: 100%;
+    }
+  }
+
+  @keyframes flap {
+    0% {
+      border-radius: 90%;
+    }
+    100% {
+      border-radius: 10%;
+    }
+  }
+
   // CLOUDS
   // Credit to Oscar Bustos at https://codepen.io/elchiconube/pen/naxOWv
 
   #clouds {
     position: absolute;
-
     z-index: -1;
+    padding: 100px 0px;
     // background: hsl(0, 0%, 10%);
   }
 
   // Cloud shape
   .cloud {
-    color: $black;
-    font-size: 20px;
+    color: rgba($black, 0.5);
+    font-size: 28px;
+
+    @include media-breakpoint-down(md) {
+      color: rgba($black, 0.5);
+      font-size: 24px;
+    }
+    text-transform: uppercase;
+    font-weight: light;
     text-align: center;
     width: 200px;
     height: 60px;
@@ -276,6 +443,7 @@ a {
     position: absolute;
     top: -15px;
     left: 10px;
+    z-index: -1;
 
     @include border-radius(100px);
     @include transform-rotate(30deg);
@@ -292,8 +460,9 @@ a {
   // Make animation
   .x1 {
     opacity: 0.9;
-    @include moving-clouds-animation(12s);
+    @include moving-clouds-animation(16s);
 
+    @include transform-scale(0.8);
     @include media-breakpoint-down(md) {
       @include transform-scale(0.5);
     }
@@ -318,9 +487,9 @@ a {
     opacity: 0.85;
     @include moving-clouds-animation(15s);
 
-    @include transform-scale(0.7);
+    @include transform-scale(0.6);
     @include media-breakpoint-down(md) {
-      @include transform-scale(0.35);
+      @include transform-scale(0.3);
     }
   }
 
@@ -348,9 +517,59 @@ a {
       left: -175px;
     }
 
-    @include transform-scale(0.8);
+    @include transform-scale(0.7);
     @include media-breakpoint-down(md) {
-      @include transform-scale(0.4);
+      @include transform-scale(0.35);
+    }
+  }
+  .x6 {
+    opacity: 0.5;
+    @include moving-clouds-animation(18s);
+
+    left: 150px;
+    @include media-breakpoint-down(md) {
+      left: 75px;
+    }
+
+    @include transform-scale(0.6);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.3);
+    }
+  }
+
+  .x7 {
+    opacity: 0.6;
+    @include moving-clouds-animation(22s);
+
+    left: 270px;
+    @include media-breakpoint-down(md) {
+      left: 135px;
+    }
+
+    @include transform-scale(0.7);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.35);
+    }
+  }
+
+  .x8 {
+    padding: 0px 20px;
+    font-size: 1rem;
+    // color: $darkblue;
+    opacity: 0.9;
+    @include moving-clouds-animation(30s);
+
+    left: -200px;
+    top: 200px;
+
+    @include media-breakpoint-down(md) {
+      left: -100px;
+      top: 300px;
+    }
+
+    @include transform-scale(1);
+    @include media-breakpoint-down(md) {
+      @include transform-scale(0.8);
     }
   }
 
@@ -577,7 +796,10 @@ a {
       }
     }
     .project-skills {
+      color: rgba($white, 0.5);
       font-weight: light;
+      line-height: 1rem;
+      margin-top: 1.2rem;
       text-transform: uppercase;
       @include media-breakpoint-down(sm) {
         font-size: $fs-12;

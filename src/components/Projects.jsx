@@ -26,10 +26,11 @@ const Projects = () => {
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
                 <div className="project-name">Tasmanian Berries Website</div>
-                <div className="project-skills text-gray d-flex flex-wrap gap-3">
+                <div className="project-skills d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>
                   <div>#Sass</div>
+                  <div>#Sheets API</div>
                   <div>#Firebase</div>
                 </div>
               </div>
@@ -48,12 +49,14 @@ const Projects = () => {
                 </div>
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
-                <div className="project-name">Tasmanian Berries Web Apps</div>
-                <div className="project-skills text-gray d-flex flex-wrap gap-3">
-                  <div>#ReactJS</div>
-                  <div>#Bootstrap</div>
-                  <div>#Sass</div>
-                  <div>#Firebase</div>
+                <div className="project-name">
+                  Tasmanian Berries Web Apps{' '}
+                  <span className="text-blue">x5</span>
+                </div>
+                <div className="project-skills d-flex flex-wrap gap-3">
+                  <div>#CSS/Bootstrap</div>
+                  <div>#JavaScript</div>
+                  <div>#Google Apps Script</div>
                 </div>
               </div>
             </div>
@@ -72,10 +75,12 @@ const Projects = () => {
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
                 <div className="project-name">PointsBet Clone</div>
-                <div className="project-skills text-gray d-flex flex-wrap gap-3">
+                <div className="project-skills d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
+                  <div>#TypeScript</div>
                   <div>#Bootstrap</div>
                   <div>#Sass</div>
+                  <div>#The Odds API</div>
                   <div>#Firebase</div>
                 </div>
               </div>
@@ -95,7 +100,7 @@ const Projects = () => {
               </div>
               <div className="project-info d-flex flex-column px-0 py-3">
                 <div className="project-name">Data Science Blog</div>
-                <div className="project-skills text-gray d-flex flex-wrap gap-3">
+                <div className="project-skills d-flex flex-wrap gap-3">
                   <div>#ReactJS</div>
                   <div>#Bootstrap</div>
                   <div>#Sass</div>
