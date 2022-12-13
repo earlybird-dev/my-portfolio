@@ -12204,6 +12204,8 @@ a:focus, a:visited, a:hover {
   left: -2px;
   bottom: 0;
   z-index: -1;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
   transform: rotate(-2deg);
   -moz-transition: all 0.25s ease-in-out;
   -o-transition: all 0.25s ease-in-out;
@@ -12220,6 +12222,8 @@ a:focus, a:visited, a:hover {
   left: -2px;
   bottom: 0;
   z-index: -1;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
   transform: rotate(-2deg);
 }
 .header .intro p {
@@ -12323,7 +12327,11 @@ a:focus, a:visited, a:hover {
   width: 100%;
   height: 7px;
   z-index: -1;
-  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
 }
 #projects .project-links a:hover::before {
   background-color: hsl(226deg, 100%, 61%);
@@ -12367,5 +12375,84 @@ a:focus, a:visited, a:hover {
 @media (max-width: 575.98px) {
   #projects .project-info .project-skills {
     font-size: 0.75rem;
+  }
+}
+
+.footer h2 span, .footer .h2 span {
+  position: relative;
+}
+.footer h2 span:before, .footer .h2 span:before {
+  background-color: hsl(357deg, 77%, 50%);
+  content: "";
+  position: absolute;
+  width: calc(100% + 4px);
+  height: 60%;
+  left: -2px;
+  bottom: 0;
+  z-index: -1;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+  -moz-transition: all 0.25s ease-in-out;
+  -o-transition: all 0.25s ease-in-out;
+  -webkit-transition: all 0.25s ease-in-out;
+  -ms-transition: all 0.25s ease-in-out;
+  transition: all 0.25s ease-in-out;
+}
+.footer h2 span:hover::before, .footer .h2 span:hover::before {
+  background-color: hsl(216deg, 81%, 29%);
+  content: "";
+  position: absolute;
+  width: calc(100% + 4px);
+  height: 60%;
+  left: -2px;
+  bottom: 0;
+  z-index: -1;
+  -webkit-transform: rotate(-2deg);
+  -moz-transform: rotate(-2deg);
+  transform: rotate(-2deg);
+}
+.footer img {
+  width: 100%;
+}
+@media (max-width: 991.98px) {
+  .footer img {
+    width: 30%;
+  }
+}
+@media (max-width: 767.98px) {
+  .footer img {
+    width: 40%;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer img {
+    width: 50%;
+  }
+}
+.footer .footer-social {
+  position: relative;
+}
+.footer .footer-social .icon-3d {
+  padding: 10px;
+  font-size: 3.5rem;
+  color: hsl(0deg, 0%, 100%);
+  text-shadow: 5px 4px hsl(357deg, 77%, 50%), -5px -6px hsl(216deg, 81%, 29%);
+  -webkit-transform: rotate(-4deg);
+  -moz-transform: rotate(-4deg);
+  transform: rotate(-4deg);
+}
+.footer .footer-social .icon-3d:hover {
+  -webkit-animation: icon3d 200ms infinite;
+  animation: icon3d 200ms infinite;
+}
+@media (max-width: 991.98px) {
+  .footer .footer-social .icon-3d {
+    font-size: 2.5rem;
+  }
+}
+@media (max-width: 575.98px) {
+  .footer .footer-social .icon-3d {
+    font-size: 2rem;
   }
 }/*# sourceMappingURL=index.css.map */

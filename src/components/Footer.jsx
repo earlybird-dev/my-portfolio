@@ -1,25 +1,53 @@
 import React from 'react';
+import avatar from '../avatar.jpg';
 
 const Footer = () => {
   return (
     <>
       <footer id="contact" className="footer py-5">
-        <div className="container">
-          <h1>Contact Me</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda
-            laborum soluta blanditiis est similique aspernatur laboriosam unde
-            velit excepturi. Aliquam quod, deleniti magnam dolore labore
-            voluptas necessitatibus, porro consequatur ab magni inventore nam
-            vitae eligendi nobis beatae adipisci, amet commodi est impedit odio.
-            Molestias aut harum doloremque incidunt corporis veritatis saepe,
-            atque, natus mollitia dolores impedit rem doloribus voluptas enim
-            iusto tempore, sapiente ipsum veniam delectus? Numquam optio sint
-            dolores, exercitationem perspiciatis beatae labore vitae, dolore quo
-            quos, nam praesentium unde aliquid minima laborum! Modi, dignissimos
-            totam? Fugiat ut eaque tempora, odit et at nisi vitae. Ipsum
-            perspiciatis fugiat autem?
-          </p>
+        <div className="container ">
+          <div className="row g-2">
+            <div className="col-12 col-lg-2 d-flex align-items-center justify-content-center">
+              <img src={avatar} alt="logo" className="rounded-circle" />
+            </div>
+            <div className="col-12 col-lg-6 d-flex flex-column align-items-center justify-content-center">
+              <h2 className="text-center">
+                <span>Let's Connect</span>
+              </h2>
+              <p className="text-center px-5">
+                If you find my portfolio interesting!
+              </p>
+            </div>
+
+            <div className="col-12 col-lg-4 d-flex align-items-center justify-content-center">
+              <div className="footer-social d-flex align-items-center justify-content-center gap-1">
+                <a
+                  href="https://github.com/earlybird-dev"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="p-2"
+                >
+                  <i className="fa fa-github icon-3d"></i>
+                </a>
+                <a
+                  href="https://au.linkedin.com/in/trungha-nguyen"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="p-2"
+                >
+                  <i className="fa fa-linkedin icon-3d"></i>
+                </a>
+                <a
+                  href="mailto:trungha.dev@gmail.com"
+                  rel="noreferrer"
+                  target="_blank"
+                  className="p-2"
+                >
+                  <i className="fa fa-envelope icon-3d"></i>
+                </a>
+              </div>
+            </div>
+          </div>
         </div>
       </footer>
     </>

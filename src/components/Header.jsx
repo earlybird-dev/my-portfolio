@@ -33,7 +33,7 @@ const Header = () => {
                 early-bird.dev
               </a>
             </div>
-            <div className="navbar-social d-flex align-items-center justify-content-center gap-1 gap-md-4 pb-1 pb-md-3 ">
+            <div className="navbar-social d-flex align-items-center justify-content-center gap-1 gap-md-4">
               <a
                 href="https://github.com/earlybird-dev"
                 rel="noreferrer"
