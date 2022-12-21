@@ -11774,13 +11774,17 @@ a:focus, a:visited, a:hover {
 .header .bird1-l,
 .header .bird1-r,
 .header .bird2-l,
-.header .bird2-r {
+.header .bird2-r,
+.header .bird3-l,
+.header .bird3-r {
   position: absolute;
 }
 .header .bird1-l,
 .header .bird1-r,
 .header .bird2-l,
-.header .bird2-r {
+.header .bird2-r,
+.header .bird3-l,
+.header .bird3-r {
   left: -15%;
 }
 .header #sunrise {
@@ -11846,8 +11850,8 @@ a:focus, a:visited, a:hover {
   border-right-color: transparent;
   border-top-color: transparent;
   transform: rotateZ(75deg);
-  margin: 0px 12px;
-  animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
+  margin: 0px 13px;
+  animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
 }
 .header .bird2-l {
   z-index: 70;
@@ -11875,18 +11879,39 @@ a:focus, a:visited, a:hover {
   border-right-color: transparent;
   border-top-color: transparent;
   transform: rotateZ(75deg);
-  margin: 0px 12px;
+  margin: 0px 13px;
   animation: move 25s linear infinite 1s, flap 0.5s linear alternate infinite 1s;
 }
-@keyframes move {
-  0% {
-    left: 0px;
-  }
-  100% {
-    left: 100%;
-  }
+.header .bird3-l {
+  z-index: 70;
+  opacity: 1;
+  top: 20%;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  transform: rotateZ(-75deg);
+  animation: move 25s linear infinite 2s, flap 0.5s linear alternate infinite 1s;
 }
-@keyframes mover {
+.header .bird3-r {
+  z-index: 70;
+  opacity: 1;
+  top: 20%;
+  width: 20px;
+  height: 16px;
+  border: 2px solid black;
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  transform: rotateZ(75deg);
+  margin: 0px 13px;
+  animation: move 25s linear infinite 2s, flap 0.5s linear alternate infinite 1s;
+}
+@keyframes move {
   0% {
     left: 0px;
   }
@@ -12303,10 +12328,11 @@ a:focus, a:visited, a:hover {
   top: 50%;
   transform: translate(-50%, -50%);
   z-index: 999;
+  font-size: 1rem;
 }
 @media (max-width: 575.98px) {
   #projects .project-links {
-    font-size: 1rem;
+    font-size: 0.875rem;
   }
 }
 #projects .project-links a {
@@ -12339,17 +12365,26 @@ a:focus, a:visited, a:hover {
   height: 100%;
 }
 #projects .project-img {
-  width: 100%;
+  height: 400px;
+}
+@media (max-width: 1199.98px) {
+  #projects .project-img {
+    height: 350px;
+  }
+}
+@media (max-width: 767.98px) {
+  #projects .project-img {
+    height: 300px;
+  }
 }
 #projects .project-img img {
   display: block;
-  max-width: 100%;
-  height: auto;
+  height: 100%;
 }
 #projects .project-img .overlay {
   position: absolute;
   bottom: 0;
-  background: rgba(20, 20, 20, 0.75); /* Black see-through */
+  background: rgba(20, 20, 20, 0.8); /* Black see-through */
   width: 100%;
   height: 100%;
   opacity: 1;
@@ -12369,11 +12404,24 @@ a:focus, a:visited, a:hover {
   color: rgba(255, 255, 255, 0.5);
   font-weight: light;
   line-height: 0.8rem;
-  margin-top: 1.2rem;
   text-transform: uppercase;
+  font-size: 1rem;
 }
 @media (max-width: 575.98px) {
   #projects .project-info .project-skills {
+    font-size: 0.75rem;
+  }
+}
+#projects .project-info .project-description {
+  font-size: 1rem;
+}
+@media (max-width: 767.98px) {
+  #projects .project-info .project-description {
+    font-size: 0.875rem;
+  }
+}
+@media (max-width: 575.98px) {
+  #projects .project-info .project-description {
     font-size: 0.75rem;
   }
 }

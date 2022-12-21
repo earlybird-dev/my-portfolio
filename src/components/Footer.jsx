@@ -19,7 +19,7 @@ const Footer = () => {
               </p>
             </div>
 
-            <div className="col-12 col-lg-4 d-flex align-items-center justify-content-center">
+            <div className="col-12 col-lg-4 d-flex flex-column align-items-center justify-content-center">
               <div className="footer-social d-flex align-items-center justify-content-center gap-1">
                 <a
                   href="https://github.com/earlybird-dev"
@@ -45,6 +45,10 @@ const Footer = () => {
                 >
                   <i className="fa fa-envelope icon-3d"></i>
                 </a>
+              </div>
+              <div>
+                <a href="https://early-bird.dev/">early-bird.dev</a>{' '}
+                <span>|</span> <a href="https://trung-ha.dev/">trung-ha.dev</a>
               </div>
             </div>
           </div>

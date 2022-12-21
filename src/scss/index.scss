@@ -48,6 +48,7 @@ $fs-32: 2rem;
 $fs-24: 1.5rem;
 $fs-18: 1.125rem;
 $fs-16: 1rem;
+$fs-14: 0.875rem;
 $fs-12: 0.75rem;
 
 // MIXIN
@@ -257,14 +258,18 @@ a {
   .bird1-l,
   .bird1-r,
   .bird2-l,
-  .bird2-r {
+  .bird2-r,
+  .bird3-l,
+  .bird3-r {
     position: absolute;
   }
 
   .bird1-l,
   .bird1-r,
   .bird2-l,
-  .bird2-r {
+  .bird2-r,
+  .bird3-l,
+  .bird3-r {
     left: -15%;
   }
 
@@ -336,8 +341,8 @@ a {
     border-right-color: transparent;
     border-top-color: transparent;
     transform: rotateZ(75deg);
-    margin: 0px 12px;
-    animation: mover 25s linear infinite, flap 0.5s linear alternate infinite;
+    margin: 0px 13px;
+    animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
   }
 
   .bird2-l {
@@ -368,23 +373,46 @@ a {
     border-right-color: transparent;
     border-top-color: transparent;
     transform: rotateZ(75deg);
-    margin: 0px 12px;
+    margin: 0px 13px;
     animation: move 25s linear infinite 1s,
+      flap 0.5s linear alternate infinite 1s;
+  }
+  .bird3-l {
+    z-index: 70;
+    opacity: 1;
+    top: 20%;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-bottom-color: transparent;
+    transform: rotateZ(-75deg);
+    animation: move 25s linear infinite 2s,
+      flap 0.5s linear alternate infinite 1s;
+  }
+
+  .bird3-r {
+    z-index: 70;
+    opacity: 1;
+    top: 20%;
+    width: 20px;
+    height: 16px;
+    border: 2px solid black;
+    border-radius: 50%;
+    border-bottom-color: transparent;
+    border-right-color: transparent;
+    border-top-color: transparent;
+    transform: rotateZ(75deg);
+    margin: 0px 13px;
+    animation: move 25s linear infinite 2s,
       flap 0.5s linear alternate infinite 1s;
   }
 
   @keyframes move {
     0% {
       left: 0px;
-    }
-    100% {
-      left: 100%;
-    }
-  }
-
-  @keyframes mover {
-    0% {
-      left: -0px;
     }
     100% {
       left: 100%;
@@ -744,8 +772,9 @@ a {
     top: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
+    font-size: $fs-16;
     @include media-breakpoint-down(sm) {
-      font-size: $fs-16;
+      font-size: $fs-14;
     }
     a {
       display: block;
@@ -755,7 +784,6 @@ a {
       text-transform: uppercase;
       text-decoration: none;
       color: $white;
-      // border-bottom: 4px solid $yellow;
 
       &:before {
         content: '';
@@ -777,16 +805,22 @@ a {
     }
   }
   .project-img {
-    width: 100%;
+    height: 400px;
+    @include media-breakpoint-down(xl) {
+      height: 350px;
+    }
+    @include media-breakpoint-down(md) {
+      height: 300px;
+    }
+
     img {
       display: block;
-      max-width: 100%;
-      height: auto;
+      height: 100%;
     }
     .overlay {
       position: absolute;
       bottom: 0;
-      background: rgba($black, 0.75); /* Black see-through */
+      background: rgba($black, 0.8); /* Black see-through */
       width: 100%;
       height: 100%;
       opacity: 1;
@@ -807,8 +841,19 @@ a {
       color: rgba($white, 0.5);
       font-weight: light;
       line-height: 0.8rem;
-      margin-top: 1.2rem;
+      // margin-top: 1.2rem;
       text-transform: uppercase;
+      font-size: $fs-16;
+      @include media-breakpoint-down(sm) {
+        font-size: $fs-12;
+      }
+    }
+
+    .project-description {
+      font-size: $fs-16;
+      @include media-breakpoint-down(md) {
+        font-size: $fs-14;
+      }
       @include media-breakpoint-down(sm) {
         font-size: $fs-12;
       }

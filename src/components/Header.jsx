@@ -12,6 +12,8 @@ const Header = () => {
             <div className="bird1-r"></div>
             <div className="bird2-l"></div>
             <div className="bird2-r"></div>
+            <div className="bird3-l"></div>
+            <div className="bird3-r"></div>
           </div>
         </div>
         <div className="container-fluid m-0 position-relative">
@@ -20,10 +22,6 @@ const Header = () => {
             <div className="cloud x2 shadow"></div>
             <div className="cloud x3 shadow"></div>
             <div className="cloud x4 shadow"></div>
-            {/* <div className="cloud x5 shadow"></div> */}
-            {/* <div className="cloud x6 shadow">Python</div>
-            <div className="cloud x7 shadow">SQL</div> */}
-            {/* <div className="cloud x8 shadow"></div> */}
           </div>
         </div>
         <div className="container">
@@ -64,9 +62,6 @@ const Header = () => {
             <div className="logo d-flex align-items-center justify-content-center animate__animated  animate__lightSpeedInLeft animate__delay-1s">
               <img src={logo} alt="logo" className="" />
             </div>
-            {/* <div className="logo sun d-flex align-items-center justify-content-center animate__animated  animate__bounceOutDown animate__delay-2s">
-            <img src={sun} alt="sun" className="" />
-          </div> */}
             <div>
               <h1>Nice to meet you!</h1>
               <h1>
