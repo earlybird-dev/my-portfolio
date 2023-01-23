@@ -1,11 +1,10 @@
 import React from 'react';
-import logo from '../logo.png';
 
 const Header = () => {
   return (
     <>
       <header className="header min-vh-100 pb-5">
-        <div className=" m-0">
+        <div id="sky" className="m-0">
           <div id="sunrise" className="min-vh-100 m-0">
             <div className="sun"></div>
             <div className="bird1-l"></div>
@@ -15,77 +14,73 @@ const Header = () => {
             <div className="bird3-l"></div>
             <div className="bird3-r"></div>
           </div>
-        </div>
-        <div className="container-fluid m-0 position-relative">
-          <div id="clouds" className="min-vh-100">
-            <div className="cloud x1 shadow"></div>
-            <div className="cloud x2 shadow"></div>
-            <div className="cloud x3 shadow"></div>
-            <div className="cloud x4 shadow"></div>
+          <div className="container-fluid m-0 position-relative">
+            <div id="clouds" className="min-vh-100">
+              <div className="cloud x1 shadow"></div>
+              <div className="cloud x2 shadow"></div>
+              <div className="cloud x3 shadow"></div>
+              <div className="cloud x4 shadow"></div>
+            </div>
           </div>
         </div>
         <div className="container">
-          <div className="navbar d-flex justify-content-between mb-1 mb-sm-5 animate__animated  animate__backInDown animate__delay-1s">
+          <div
+            id="navbar"
+            className="p-3 fixed-top d-flex justify-content-between animate__animated animate__backInDown animate__delay-1s"
+          >
             <div className="navbar-name">
               <a href="/#" className="">
                 early-bird.dev
               </a>
             </div>
-            <div className="navbar-social d-flex align-items-center justify-content-center gap-1 gap-md-4">
-              <a
-                href="https://github.com/earlybird-dev"
-                rel="noreferrer"
-                target="_blank"
-                className="p-2"
-              >
-                <i className="fa fa-github icon-3d"></i>
+            <div className="navbar-items d-none d-md-flex align-items-center justify-content-center ">
+              <a href="#skills" className="mx-2 pb-2">
+                <i className="navbar-item px-2">Skills</i>
               </a>
-              <a
-                href="https://au.linkedin.com/in/trungha-nguyen"
-                rel="noreferrer"
-                target="_blank"
-                className="p-2"
-              >
-                <i className="fa fa-linkedin icon-3d"></i>
+              <a href="#projects" className="mx-2 pb-2">
+                <i className="navbar-item px-2">Projects</i>
               </a>
-              <a
-                href="mailto:trungha.dev@gmail.com"
-                rel="noreferrer"
-                target="_blank"
-                className="p-2"
-              >
-                <i className="fa fa-envelope icon-3d"></i>
+              <a href="#experience" className="mx-2 pb-2">
+                <i className="navbar-item px-2">Experience</i>
+              </a>
+              <a href="#contact" className="mx-2 pb-2">
+                <i className="navbar-item px-2">Contact Me</i>
+              </a>
+            </div>
+            <div className="navbar-items d-flex d-md-none align-items-center justify-content-center">
+              <a href="#skills" className="mx-2 pb-2">
+                <i className="fa fa-key fa-3dicon text-lightblue"></i>
+              </a>
+              <a href="#projects" className="mx-2 pb-2">
+                <i className="fa fa-code fa-3dicon text-lightblue"></i>
+              </a>
+              <a href="#experience" className="mx-2 pb-2">
+                <i className="fa fa-briefcase fa-3dicon text-lightblue"></i>
+              </a>
+              <a href="#contact" className="mx-2 pb-2">
+                <i className="fa fa-grav fa-3dicon text-lightblue"></i>
               </a>
             </div>
           </div>
-          <div className="intro d-flex flex-column gap-4">
-            <div className="logo d-flex align-items-center justify-content-center animate__animated  animate__lightSpeedInLeft animate__delay-1s">
-              <img src={logo} alt="logo" className="" />
-            </div>
-            <div>
+          <div
+            id="intro"
+            className="min-vh-100 d-flex justify-content-center flex-column gap-4"
+          >
+            <div className="d-flex flex-column gap-3 align-items-center justify-content-center animate__animated  animate__lightSpeedInLeft animate__delay-1s">
               <h1>Nice to meet you!</h1>
-              <h1>
-                I'm <span>Trung Ha</span>
+              <h1 className=" intro-name">
+                I'm <span>T</span>
+                <span>r</span>
+                <span>u</span>
+                <span>n</span>
+                <span>g</span> <span>H</span>
+                <span>a</span>
               </h1>
-            </div>
-            <p className="">
-              Based in Australia, I'm a front-end developer passionate about
-              building accessible web apps that users love. Willing to relocate
-              to anywhere in the country.
-            </p>
-            <div className="d-flex flex-column ">
-              <a href="#skills" className="">
-                Skills
-              </a>
-              <a href="#projects" className="">
-                Projects
-              </a>
-              <a href="#experience" className="">
-                Experience
-              </a>
-              {/* <a href="#contact" className="">
-              Contact Me
-            </a> */}
+              <p className="text-center mt-4 p-4 p-md-5 p-3 p-md-5 border-corners bg-dark">
+                Based in Australia, I'm a front-end developer passionate about
+                building accessible web apps that users love.
+                <span className="border_btm"></span>
+              </p>
             </div>
           </div>
         </div>

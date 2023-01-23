@@ -1,21 +1,26 @@
-// ======= CUSTOM BOOTSTRAP =======
+// ======= CUSTOM BOOTSTRAP ===================================================
 // Custom colors
 $black: hsl(0, 0%, 8%);
-$darkgray: hsl(0, 0%, 14%);
+$darkgray: hsl(0, 0%, 12%);
 $lightgray: hsl(0, 0%, 97%);
 $green: hsl(153, 71%, 59%);
 $white: hsl(0, 0%, 100%);
 $gray: hsl(0, 0%, 85%);
 $red: hsl(357, 87%, 61%);
 $darkred: hsl(357, 77%, 50%);
-$blue: hsl(226, 100%, 61%);
-$darkblue: hsl(216, 81%, 29%);
-$yellow: hsl(72, 98%, 50%);
+$pink: hsl(336, 100%, 54%);
+$purple: hsl(295, 100%, 25%);
+$lightblue: hsl(197, 100%, 44%);
+$blue: hsl(225, 100%, 62%);
+$darkblue: hsl(240, 95%, 57%);
+$yellow: hsl(23, 25%, 20%);
+$orange: hsl(22, 100%, 58%);
 
 // Import the functions and variables
 @import '../../node_modules/bootstrap/scss/_functions';
 @import '../../node_modules/bootstrap/scss/_variables';
 
+// Add custom colors to Bootstrap
 $custom-theme-colors: (
   'black': $black,
   'darkgray': $darkgray,
@@ -24,21 +29,52 @@ $custom-theme-colors: (
   'gray': $gray,
   'red': $red,
   'darkred': $darkred,
+  'pink': $pink,
+  'purple': $purple,
+  'lightblue': $lightblue,
   'blue': $blue,
   'darkblue': $darkblue,
   'yellow': $yellow,
+  'orange': $orange,
 );
 
 $theme-colors: map-merge($custom-theme-colors, $theme-colors);
 
-// Import Bootstrap, Animate
+// Import Bootstrap, Animate css
 @import '../../node_modules/bootstrap/scss/bootstrap';
 @import '../../node_modules/animate.css/animate.css';
 
+// Import Google fonts
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nabla:EDPT,EHLT@30..200,24&display=swap');
 
-// VARIABLES
+// ======= VARIABLES ===================================================
+// Font families
 $font-primary: 'Space Grotesk', sans-serif;
+$font-header: 'Nabla', cursive;
+
+// Blue
+@font-palette-values --Nabla-Blue {
+  font-family: Nabla;
+  base-palette: 2;
+}
+
+// Yellow
+@font-palette-values --Nabla-Yellow {
+  font-family: Nabla;
+  base-palette: 0;
+}
+
+// Gray
+@font-palette-values --Nabla-Gray {
+  font-family: Nabla;
+  base-palette: 4;
+}
+
+// Padding for main sections
+$padding: 6.25rem;
+
+// Font sizes
 $fs-88: 5.5rem;
 $fs-72: 4.5rem;
 $fs-56: 3.5rem;
@@ -51,7 +87,41 @@ $fs-16: 1rem;
 $fs-14: 0.875rem;
 $fs-12: 0.75rem;
 
-// MIXIN
+// ======= MIXIN ===================================================
+@mixin nabla-yellow-depth($d) {
+  font-family: $font-header;
+  font-palette: --Nabla-Yellow;
+  font-variation-settings: 'EDPT' $d;
+}
+
+@mixin nabla-blue-depth($d) {
+  font-family: $font-header;
+  font-palette: --Nabla-Blue;
+  font-variation-settings: 'EDPT' $d;
+}
+
+@mixin nabla-gray-depth($d) {
+  font-family: $font-header;
+  font-palette: --Nabla-Gray;
+  font-variation-settings: 'EDPT' $d;
+}
+
+@mixin bird-rotate-right($deg) {
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-right-color: transparent;
+  border-top-color: transparent;
+  transform: rotateZ($deg);
+}
+
+@mixin bird-rotate-left($deg) {
+  border-radius: 50%;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  border-top-color: transparent;
+  transform: rotateZ($deg);
+}
+
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
   -moz-border-radius: $radius;
@@ -79,18 +149,22 @@ $fs-12: 0.75rem;
   transform: rotate($deg);
 }
 
-@mixin icon3d-animation($duration) {
-  -webkit-animation: icon3d $duration infinite;
-  animation: icon3d $duration infinite;
-}
-
 @mixin moving-clouds-animation($duration) {
   -webkit-animation: moving-clouds $duration linear infinite;
   -moz-animation: moving-clouds $duration linear infinite;
   -o-animation: moving-clouds $duration linear infinite;
 }
 
-// GENERAL
+@mixin position-absolute-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+// ======= GENERAL CSS ===================================================
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -104,17 +178,31 @@ html {
 
 html,
 body {
+  margin: 0;
   max-width: 100%;
   overflow-x: hidden;
 }
 
 body {
   font-family: $font-primary;
-  font-size: $fs-18;
   line-height: 1.56;
   background-color: $black;
   color: $white;
-  margin: 0;
+
+  font-size: $fs-18;
+  @include media-breakpoint-down(md) {
+    font-size: $fs-16;
+  }
+}
+
+h1,
+h2,
+h3 {
+  @include nabla-blue-depth(100);
+}
+
+h4 {
+  @include nabla-yellow-depth(50);
 }
 
 h1 {
@@ -141,45 +229,8 @@ h2 {
   @include media-breakpoint-down(md) {
     font-size: $fs-32;
   }
-  &.highlight {
-    margin-bottom: $fs-40;
-    width: fit-content;
-    position: relative;
-    z-index: 1;
-    &:before {
-      background-color: $darkblue;
-      content: '';
-      position: absolute;
-      width: calc(100% + 4px);
-      height: 40%;
-      left: -2px;
-      bottom: 0;
-      z-index: -1;
-      @include transform-rotate(-2deg);
-      @include transition(0.5s);
-    }
-    &:hover::before {
-      background-color: $darkred;
-    }
-  }
-}
 
-h3 {
-  font-size: $fs-40;
-  text-transform: uppercase;
-
-  @include media-breakpoint-down(xl) {
-    font-size: $fs-32;
-  }
-  @include media-breakpoint-down(lg) {
-    font-size: $fs-24;
-  }
-  @include media-breakpoint-down(md) {
-    font-size: $fs-18;
-  }
-  @include media-breakpoint-down(sm) {
-    font-size: $fs-16;
-  }
+  margin-bottom: $fs-40;
 }
 
 a {
@@ -193,107 +244,121 @@ a {
   }
 }
 
-// HEADER
+// ======= HEADER ===================================================
 .header {
-  .navbar {
-    .navbar-name {
-      a {
-        // text-shadow: 3px 2px $darkred, -2px -3px $darkblue;
-      }
-    }
-    .navbar-social {
-      position: relative;
-      .icon-3d {
-        padding: 10px;
-        font-size: $fs-32;
-        color: $white;
-        text-shadow: 5px 4px $darkred, -5px -6px $darkblue;
-        @include transform-rotate(-4deg);
-
-        // @include icon3d-animation(2s);
-        &:hover {
-          @include icon3d-animation(200ms);
-        }
-
-        @include media-breakpoint-down(md) {
-          font-size: $fs-18;
-
-          // &:after {
-          //   background-color: $red;
-          //   content: '';
-          //   position: absolute;
-          //   width: calc(100% + 20px);
-          //   height: 200%;
-          //   left: -10px;
-          //   bottom: 20px;
-          //   z-index: -1;
-          // }
-        }
-      }
-
-      @keyframes icon3d {
-        0% {
-          text-shadow: 5px 4px $darkred, -5px -6px $darkblue;
-        }
-        25% {
-          text-shadow: -5px -6px $darkred, 5px 4px $darkblue;
-        }
-        50% {
-          text-shadow: 5px -4px $darkred, -8px 4px $darkblue;
-        }
-        75% {
-          text-shadow: -8px -4px $darkred, -5px -4px $darkblue;
-        }
-        100% {
-          text-shadow: -5px 0 $darkred, 5px -4px $darkblue;
-        }
-      }
-    }
-  }
-
   // SUNRISE
   // Credit to The Brutal Tooth at https://codepen.io/TheBrutalTooth/pen/KWwgQo
-  #sunrise,
-  .sun,
-  .bird1-l,
-  .bird1-r,
-  .bird2-l,
-  .bird2-r,
-  .bird3-l,
-  .bird3-r {
-    position: absolute;
-  }
-
-  .bird1-l,
-  .bird1-r,
-  .bird2-l,
-  .bird2-r,
-  .bird3-l,
-  .bird3-r {
-    left: -15%;
-  }
-
   #sunrise {
     width: 100%;
     height: 400px;
     overflow-x: hidden;
-    // margin-left: 100px;
-  }
+    position: absolute;
 
-  .sun {
-    width: 140px;
-    height: 140px;
-    @include media-breakpoint-down(md) {
-      width: 70px;
-      height: 70px;
+    .bird1-l,
+    .bird1-r,
+    .bird2-l,
+    .bird2-r,
+    .bird3-l,
+    .bird3-r {
+      position: absolute;
+      left: -15%;
     }
 
-    border-radius: 50%;
-    left: 85%;
-    z-index: -1;
-    background: linear-gradient(#ff0, #d00);
-    box-shadow: 0 0 7px 1px #f20, 0 0 15px 3px #f33;
-    animation: rise 12s ease forwards;
+    .sun {
+      position: absolute;
+      border-radius: 50%;
+      width: 140px;
+      height: 140px;
+      left: 85%;
+      @include media-breakpoint-down(lg) {
+        width: 100px;
+        height: 100px;
+        left: 75%;
+      }
+      @include media-breakpoint-down(md) {
+        width: 70px;
+        height: 70px;
+        left: 65%;
+      }
+
+      z-index: -1;
+      background: linear-gradient(#ff0, #d00);
+      box-shadow: 0 0 7px 1px #f20, 0 0 15px 3px #f33;
+      animation: rise 12s ease forwards;
+    }
+
+    .bird1-l {
+      z-index: 70;
+      opacity: 1;
+      top: 20%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-left(-75deg);
+      animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
+    }
+
+    .bird1-r {
+      z-index: 70;
+      opacity: 1;
+      top: 20%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-right(75deg);
+      margin: 0px 13px;
+      animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
+    }
+
+    .bird2-l {
+      z-index: 70;
+      opacity: 1;
+      top: 22%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-left(-75deg);
+      animation: move 25s linear infinite 1s,
+        flap 0.5s linear alternate infinite 1s;
+    }
+
+    .bird2-r {
+      z-index: 70;
+      opacity: 1;
+      top: 22%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-right(75deg);
+      margin: 0px 13px;
+      animation: move 25s linear infinite 1s,
+        flap 0.5s linear alternate infinite 1s;
+    }
+
+    .bird3-l {
+      z-index: 70;
+      opacity: 1;
+      top: 20%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-left(-75deg);
+      animation: move 25s linear infinite 2s,
+        flap 0.5s linear alternate infinite 1s;
+    }
+
+    .bird3-r {
+      z-index: 70;
+      opacity: 1;
+      top: 20%;
+      width: 20px;
+      height: 16px;
+      border: 2px solid black;
+      @include bird-rotate-right(75deg);
+      margin: 0px 13px;
+      animation: move 25s linear infinite 2s,
+        flap 0.5s linear alternate infinite 1s;
+    }
   }
 
   @keyframes rise {
@@ -312,102 +377,6 @@ a {
     100% {
       opacity: 0.2;
     }
-  }
-
-  .bird1-l {
-    z-index: 70;
-    opacity: 1;
-    top: 20%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    transform: rotateZ(-75deg);
-    animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
-  }
-
-  .bird1-r {
-    z-index: 70;
-    opacity: 1;
-    top: 20%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    transform: rotateZ(75deg);
-    margin: 0px 13px;
-    animation: move 25s linear infinite, flap 0.5s linear alternate infinite;
-  }
-
-  .bird2-l {
-    z-index: 70;
-    opacity: 1;
-    top: 22%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    transform: rotateZ(-75deg);
-    animation: move 25s linear infinite 1s,
-      flap 0.5s linear alternate infinite 1s;
-  }
-
-  .bird2-r {
-    z-index: 70;
-    opacity: 1;
-    top: 22%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    transform: rotateZ(75deg);
-    margin: 0px 13px;
-    animation: move 25s linear infinite 1s,
-      flap 0.5s linear alternate infinite 1s;
-  }
-  .bird3-l {
-    z-index: 70;
-    opacity: 1;
-    top: 20%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-top-color: transparent;
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-    transform: rotateZ(-75deg);
-    animation: move 25s linear infinite 2s,
-      flap 0.5s linear alternate infinite 1s;
-  }
-
-  .bird3-r {
-    z-index: 70;
-    opacity: 1;
-    top: 20%;
-    width: 20px;
-    height: 16px;
-    border: 2px solid black;
-    border-radius: 50%;
-    border-bottom-color: transparent;
-    border-right-color: transparent;
-    border-top-color: transparent;
-    transform: rotateZ(75deg);
-    margin: 0px 13px;
-    animation: move 25s linear infinite 2s,
-      flap 0.5s linear alternate infinite 1s;
   }
 
   @keyframes move {
@@ -430,201 +399,119 @@ a {
 
   // CLOUDS
   // Credit to Oscar Bustos at https://codepen.io/elchiconube/pen/naxOWv
-
   #clouds {
     position: absolute;
     z-index: -1;
-    padding: 100px 0px;
-    // background: hsl(0, 0%, 10%);
-  }
+    padding: 130px 0px;
 
-  // Cloud shape
-  .cloud {
-    color: rgba($black, 0.5);
-    font-size: 28px;
-
-    @include media-breakpoint-down(md) {
+    // Cloud shape
+    .cloud {
       color: rgba($black, 0.5);
-      font-size: 24px;
+      font-size: 28px;
+
+      @include media-breakpoint-down(md) {
+        color: rgba($black, 0.5);
+        font-size: 24px;
+      }
+      text-transform: uppercase;
+      font-weight: light;
+      text-align: center;
+      width: 200px;
+      height: 60px;
+      background: $white;
+      position: relative;
+      @include border-radius(200px);
     }
-    text-transform: uppercase;
-    font-weight: light;
-    text-align: center;
-    width: 200px;
-    height: 60px;
-    background: $white;
-    position: relative;
-    @include border-radius(200px);
-  }
 
-  .cloud:before,
-  .cloud:after {
-    content: '';
-    background: $white;
-    width: 100px;
-    height: 80px;
-    position: absolute;
-    top: -15px;
-    left: 10px;
-    z-index: -1;
+    .cloud:before,
+    .cloud:after {
+      content: '';
+      background: $white;
+      width: 100px;
+      height: 80px;
+      position: absolute;
+      top: -15px;
+      left: 10px;
+      z-index: -1;
 
-    @include border-radius(100px);
-    @include transform-rotate(30deg);
-  }
+      @include border-radius(100px);
+      @include transform-rotate(30deg);
+    }
 
-  .cloud:after {
-    width: 120px;
-    height: 120px;
-    top: -55px;
-    left: auto;
-    right: 15px;
-  }
+    .cloud:after {
+      width: 120px;
+      height: 120px;
+      top: -55px;
+      left: auto;
+      right: 15px;
+    }
 
-  // Make animation
-  .x1 {
-    opacity: 0.9;
-    @include moving-clouds-animation(16s);
+    // Make animation
+    .x1 {
+      opacity: 0.9;
+      @include moving-clouds-animation(16s);
 
-    @include transform-scale(0.8);
-    @include media-breakpoint-down(md) {
+      @include transform-scale(0.8);
+      @include media-breakpoint-down(lg) {
+        @include transform-scale(0.65);
+      }
+      @include media-breakpoint-down(md) {
+        @include transform-scale(0.5);
+      }
+    }
+
+    .x2 {
+      opacity: 0.65;
+      @include moving-clouds-animation(20s);
+
+      left: 200px;
+      @include media-breakpoint-down(md) {
+        left: 100px;
+      }
+
       @include transform-scale(0.5);
-    }
-  }
-
-  .x2 {
-    opacity: 0.65;
-    @include moving-clouds-animation(20s);
-
-    left: 200px;
-    @include media-breakpoint-down(md) {
-      left: 100px;
+      @include media-breakpoint-down(lg) {
+        @include transform-scale(0.375);
+      }
+      @include media-breakpoint-down(md) {
+        @include transform-scale(0.25);
+      }
     }
 
-    @include transform-scale(0.5);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.25);
-    }
-  }
+    .x3 {
+      opacity: 0.85;
+      @include moving-clouds-animation(15s);
 
-  .x3 {
-    opacity: 0.85;
-    @include moving-clouds-animation(15s);
-
-    @include transform-scale(0.6);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.3);
-    }
-  }
-
-  .x4 {
-    opacity: 0.75;
-    @include moving-clouds-animation(13s);
-
-    left: -470px;
-    @include media-breakpoint-down(md) {
-      left: -235px;
-    }
-
-    @include transform-scale(0.65);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.325);
-    }
-  }
-
-  .x5 {
-    opacity: 0.8;
-    @include moving-clouds-animation(24s);
-
-    left: -370px;
-    @include media-breakpoint-down(md) {
-      left: -175px;
-    }
-
-    @include transform-scale(0.7);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.35);
-    }
-  }
-  .x6 {
-    opacity: 0.5;
-    @include moving-clouds-animation(18s);
-
-    left: 150px;
-    @include media-breakpoint-down(md) {
-      left: 75px;
-    }
-
-    @include transform-scale(0.6);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.3);
-    }
-  }
-
-  .x7 {
-    opacity: 0.6;
-    @include moving-clouds-animation(22s);
-
-    left: 270px;
-    @include media-breakpoint-down(md) {
-      left: 135px;
-    }
-
-    @include transform-scale(0.7);
-    @include media-breakpoint-down(md) {
-      @include transform-scale(0.35);
-    }
-  }
-
-  .x8 {
-    padding: 0px 20px;
-    font-size: 1rem;
-    // color: $darkblue;
-    opacity: 0.9;
-    @include moving-clouds-animation(30s);
-
-    left: -200px;
-    top: 200px;
-
-    @include media-breakpoint-down(md) {
-      left: -100px;
-      top: 300px;
-    }
-
-    @include transform-scale(0.8);
-    @include media-breakpoint-down(md) {
       @include transform-scale(0.6);
+      @include media-breakpoint-down(lg) {
+        @include transform-scale(0.45);
+      }
+      @include media-breakpoint-down(md) {
+        @include transform-scale(0.3);
+      }
     }
-  }
 
-  @keyframes moving-clouds {
-    0% {
-      margin-left: 1600px;
-    }
-    100% {
-      margin-left: -200px;
-    }
-  }
-  @-moz-keyframes moving-clouds {
-    0% {
-      margin-left: 1600px;
-    }
-    100% {
-      margin-left: -200px;
-    }
-  }
-  @-o-keyframes moving-clouds {
-    0% {
-      margin-left: 1600px;
-    }
-    100% {
-      margin-left: -200px;
-    }
-  }
+    .x4 {
+      opacity: 0.75;
+      @include moving-clouds-animation(13s);
 
-  @include media-breakpoint-down(md) {
+      left: -470px;
+      @include media-breakpoint-down(md) {
+        left: -235px;
+      }
+
+      @include transform-scale(0.65);
+      @include media-breakpoint-down(lg) {
+        @include transform-scale(0.435);
+      }
+      @include media-breakpoint-down(md) {
+        @include transform-scale(0.325);
+      }
+    }
+
     @keyframes moving-clouds {
       0% {
-        margin-left: 450px;
+        margin-left: 1600px;
       }
       100% {
         margin-left: -200px;
@@ -632,7 +519,7 @@ a {
     }
     @-moz-keyframes moving-clouds {
       0% {
-        margin-left: 450px;
+        margin-left: 1600px;
       }
       100% {
         margin-left: -200px;
@@ -640,170 +527,176 @@ a {
     }
     @-o-keyframes moving-clouds {
       0% {
-        margin-left: 450px;
+        margin-left: 1600px;
       }
       100% {
         margin-left: -200px;
       }
     }
-  }
 
-  // INTRO
-  .intro {
-    position: relative;
-    .logo {
-      img {
-        width: 100%;
+    @include media-breakpoint-down(md) {
+      @keyframes moving-clouds {
+        0% {
+          margin-left: 450px;
+        }
+        100% {
+          margin-left: -200px;
+        }
       }
-      position: absolute;
-      width: 25%;
-      right: 0;
-      top: 0;
-      @include media-breakpoint-down(sm) {
-        position: relative;
-        width: 100%;
-        img {
-          width: 150px;
+      @-moz-keyframes moving-clouds {
+        0% {
+          margin-left: 450px;
+        }
+        100% {
+          margin-left: -200px;
+        }
+      }
+      @-o-keyframes moving-clouds {
+        0% {
+          margin-left: 450px;
+        }
+        100% {
+          margin-left: -200px;
         }
       }
     }
-    h1 {
+  }
+
+  // NAVBAR
+  #navbar {
+    background-color: rgba($black, 0.7);
+    .navbar-name {
+      a {
+        @include nabla-yellow-depth(50);
+      }
+    }
+    .navbar-items {
+      position: relative;
+      a {
+        @include nabla-blue-depth(50);
+        border-bottom: 2px solid transparent;
+
+        &:hover {
+          @include transition(0.4s);
+          @include nabla-yellow-depth(50);
+          border-bottom: 2px solid $yellow;
+        }
+      }
+    }
+  }
+
+  // INTRO
+  #intro {
+    .intro-name {
+      @include nabla-blue-depth(200);
       span {
-        position: relative;
-        &:before {
-          background-color: $darkblue;
-          content: '';
-          position: absolute;
-          width: calc(100% + 4px);
-          height: 60%;
-          left: -2px;
-          bottom: 0;
-          z-index: -1;
-          @include transform-rotate(-2deg);
-          @include transition(0.25s);
-        }
-        &:hover::before {
-          background-color: $darkred;
-          content: '';
-          position: absolute;
-          width: calc(100% + 4px);
-          height: 60%;
-          left: -2px;
-          bottom: 0;
-          z-index: -1;
-          @include transform-rotate(-2deg);
-        }
+        @include nabla-yellow-depth(200);
+        margin-right: 4px;
       }
     }
     p {
       width: 50%;
       @include media-breakpoint-down(lg) {
-        width: 100%;
+        width: 75%;
       }
-    }
-    a {
-      display: block;
-      position: relative;
-      width: fit-content;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $white;
-      // border-bottom: 4px solid $yellow;
-
-      &:before {
-        content: '';
-        background-color: $red;
-        position: absolute;
-        left: 0;
-        bottom: 3px;
-        width: 100%;
-        height: 7px;
-        z-index: -1;
-        @include transition(0.25s);
-      }
-
-      &:hover::before {
-        background-color: $blue;
-        bottom: 0;
-        height: 100%;
-      }
-    }
-  }
-}
-
-// SKILLS
-#skills {
-  .skill {
-    text-align: center;
-    // cursor: pointer;
-    outline: none;
-    box-shadow: 0 18px rgba($black, 0.5);
-    background-color: darken($darkgray, 1%);
-    @include transition(0.25s);
-    &:hover {
-      background-color: darken($darkgray, 4%);
-      box-shadow: 0 18px rgba($black, 0.9);
-    }
-
-    @include media-breakpoint-down(md) {
-      box-shadow: 0 7px rgba($black, 0.5);
-      &:hover {
-        background-color: darken($darkgray, 4%);
-        box-shadow: 0 7px rgba($black, 0.9);
-      }
-    }
-
-    p {
-      font-size: $fs-24;
       @include media-breakpoint-down(md) {
-        font-size: 14px;
+        width: 100%;
+      }
+    }
+  }
+
+  // background: linear-gradient(
+  //   #ffceaa 0%,
+  //   #ffc6d0 40%,
+  //   #34c4ff 75%,
+  //   #387ffb 95%
+  // );
+}
+
+// ======= SKILLS ===================================================
+#skills {
+  padding-top: $padding;
+  padding-bottom: $padding;
+
+  .skill {
+    position: relative;
+    @include transition(0.25s);
+
+    img {
+      width: 80px;
+      @include media-breakpoint-down(xl) {
+        width: 70px;
+      }
+      @include media-breakpoint-down(lg) {
+        width: 60px;
+      }
+      @include media-breakpoint-down(md) {
+        width: 50px;
+      }
+      @include media-breakpoint-down(sm) {
+        width: 40px;
+      }
+    }
+
+    .skill-overlay {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 100%;
+      width: 100%;
+      opacity: 0;
+      @include transition(0.3s);
+      background-color: $darkgray;
+      &:hover {
+        opacity: 1;
+      }
+
+      .skill-name {
+        @include position-absolute-center();
+        @include nabla-gray-depth(0);
+        text-align: center;
+        font-size: $fs-18;
+        @include media-breakpoint-down(lg) {
+          font-size: $fs-16;
+        }
+        @include media-breakpoint-down(md) {
+          font-size: $fs-14;
+        }
+        @include media-breakpoint-down(sm) {
+          font-size: $fs-12;
+        }
       }
     }
   }
 }
 
-// PROJECTS
-
+// ======= PROJECTS ===================================================
 #projects {
+  padding-top: $padding;
+  padding-bottom: $padding;
+
   .project-links {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    @include position-absolute-center();
     z-index: 999;
-    font-size: $fs-16;
+    font-size: $fs-24;
+    @include media-breakpoint-down(md) {
+      font-size: $fs-18;
+    }
     @include media-breakpoint-down(sm) {
-      font-size: $fs-14;
+      font-size: $fs-16;
     }
     a {
-      display: block;
-      position: relative;
-      width: fit-content;
-      font-weight: bold;
-      text-transform: uppercase;
-      text-decoration: none;
-      color: $white;
-
-      &:before {
-        content: '';
-        background-color: $red;
-        position: absolute;
-        left: 0;
-        bottom: 3px;
-        width: 100%;
-        height: 7px;
-        z-index: -1;
-        @include transition(0.25s);
-      }
-
-      &:hover::before {
-        background-color: $blue;
-        bottom: 0;
-        height: 100%;
+      color: rgba($white, 0.75);
+      border-bottom: 3px solid rgba($white, 0.75);
+      &:hover {
+        color: $white;
+        border-bottom: 3px solid $white;
       }
     }
   }
+
   .project-img {
     height: 400px;
     @include media-breakpoint-down(xl) {
@@ -818,12 +711,16 @@ a {
       height: 100%;
     }
     .overlay {
-      position: absolute;
-      bottom: 0;
-      background: rgba($black, 0.8); /* Black see-through */
       width: 100%;
       height: 100%;
-      opacity: 1;
+      background-color: #2a2b38;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 200%;
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0.8;
       transition: background 0.3s ease-in-out;
     }
   }
@@ -833,19 +730,25 @@ a {
       font-weight: bold;
       text-transform: uppercase;
       font-size: $fs-24;
-      @include media-breakpoint-down(sm) {
+      @include media-breakpoint-down(md) {
         font-size: $fs-18;
       }
     }
     .project-skills {
-      color: rgba($white, 0.5);
+      color: $gray;
       font-weight: light;
-      line-height: 0.8rem;
-      // margin-top: 1.2rem;
+      line-height: 0.75rem;
       text-transform: uppercase;
-      font-size: $fs-16;
-      @include media-breakpoint-down(sm) {
+      font-size: $fs-14;
+      @include media-breakpoint-down(md) {
         font-size: $fs-12;
+      }
+
+      img {
+        width: 40px;
+        @include media-breakpoint-down(md) {
+          width: 30px;
+        }
       }
     }
 
@@ -854,77 +757,416 @@ a {
       @include media-breakpoint-down(md) {
         font-size: $fs-14;
       }
-      @include media-breakpoint-down(sm) {
-        font-size: $fs-12;
-      }
     }
   }
 }
 
-// FOOTER
+// ======= EXPERIENCE ===================================================
+#experience {
+  padding-top: $padding;
+  padding-bottom: $padding;
 
-.footer {
-  h2 {
-    span {
-      position: relative;
-      &:before {
-        background-color: $darkred;
-        content: '';
-        position: absolute;
-        width: calc(100% + 4px);
-        height: 60%;
-        left: -2px;
-        bottom: 0;
-        z-index: -1;
-        @include transform-rotate(-2deg);
-        @include transition(0.25s);
-      }
-      &:hover::before {
-        background-color: $darkblue;
-        content: '';
-        position: absolute;
-        width: calc(100% + 4px);
-        height: 60%;
-        left: -2px;
-        bottom: 0;
-        z-index: -1;
-        @include transform-rotate(-2deg);
-      }
+  .accordion-item {
+    color: $white;
+    background-color: transparent;
+    border: none;
+    .accordion-button {
+      color: $white;
+      display: block;
+      align-items: left;
+      border: none;
+      background-color: transparent;
+      box-shadow: none;
+    }
+    .accordion-header {
+      background-color: $black;
+      border: none;
+    }
+    .accordion-body {
+      color: $gray;
     }
   }
+}
 
+// ======= FOOTER ===================================================
+#contact {
+  padding-top: $padding;
+  // padding-bottom: $padding;
   img {
-    width: 100%;
-    @include media-breakpoint-down(lg) {
-      width: 30%;
-    }
+    width: 80px;
     @include media-breakpoint-down(md) {
-      width: 40%;
-    }
-    @include media-breakpoint-down(sm) {
-      width: 50%;
+      width: 60px;
     }
   }
 
   .footer-social {
     position: relative;
-    .icon-3d {
-      padding: 10px;
-      font-size: $fs-56;
-      color: $white;
-      text-shadow: 5px 4px $darkred, -5px -6px $darkblue;
-      @include transform-rotate(-4deg);
+    @include nabla-gray-depth(50);
 
-      &:hover {
-        @include icon3d-animation(200ms);
-      }
-
-      @include media-breakpoint-down(lg) {
-        font-size: $fs-40;
+    .fa {
+      font-size: $fs-40;
+      @include media-breakpoint-down(md) {
+        font-size: $fs-32;
       }
       @include media-breakpoint-down(sm) {
-        font-size: $fs-32;
+        font-size: $fs-24;
       }
     }
   }
+
+  .input-group {
+    background-color: transparent;
+  }
+  .form-control {
+    padding: 15px;
+    color: $white;
+    background-color: transparent;
+    border: 1px solid $darkgray;
+    border-left: none;
+  }
+  .input-group-text {
+    color: $white;
+    background-color: $darkgray;
+    border: 1px solid $darkgray;
+    border-right: none;
+
+    font-size: $fs-18;
+    @include media-breakpoint-down(md) {
+      font-size: $fs-14;
+    }
+  }
+}
+
+// ======= UTILITIES ===================================================
+
+// 3D icons
+.fa-3dicon {
+  /*transform-style*/
+  -webkit-transform-style: preserve-3d;
+  -moz-transform-style: preserve-3d;
+  -ms-transform-style: preserve-3d;
+  -o-transform-style: preserve-3d;
+  transform-style: preserve-3d;
+  /*perspective*/
+  -webkit-perspective: 1000px;
+  -moz-perspective: 1000px;
+  -ms-perspective: 1000px;
+  -o-perspective: 1000px;
+  perspective: 1000px;
+  /*Webkit*/
+  -webkit-animation-name: rotate;
+  -webkit-animation-duration: 3s;
+  -webkit-animation-timing-function: linear;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-fill-mode: both;
+  /*mozilla*/
+  -moz-animation-name: rotate;
+  -moz-animation-duration: 3s;
+  -moz-animation-timing-function: linear;
+  -moz-animation-iteration-count: infinite;
+  -moz-animation-fill-mode: both;
+  /*Opera*/
+  -o-animation-name: rotate;
+  -o-animation-duration: 3s;
+  -o-animation-timing-function: linear;
+  -o-animation-iteration-count: infinite;
+  -o-animation-fill-mode: both;
+  /*IE 10*/
+  -ms-animation-name: rotate;
+  -ms-animation-duration: 3s;
+  -ms-animation-timing-function: linear;
+  -ms-animation-iteration-count: infinite;
+  -ms-animation-fill-mode: both;
+
+  /*Default*/
+  animation-name: rotate;
+  animation-duration: 3s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-fill-mode: both;
+  color: $lightgray;
+}
+
+// 3D icon rotate
+@-webkit-keyframes rotate {
+  0% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -webkit-transform: rotateY(0deg);
+  }
+
+  25% {
+    text-shadow: 1px 1px 1px $darkblue, -2px 1px 1px $darkblue,
+      -3px 1px 1px $darkblue, -4px 1px 1px $darkblue, -4px 1px 1px $darkblue,
+      -5px 1px 1px $darkblue, -6px 1px 1px $darkblue, -7px 1px 1px $darkblue;
+    -webkit-transform: rotateY(40deg);
+  }
+  50% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -webkit-transform: rotateY(0deg);
+  }
+
+  75% {
+    text-shadow: 1px 1px 1px $blue, 2px 1px 1px $blue, 3px 1px 1px $blue,
+      4px 1px 1px $blue, 4px 1px 1px $blue, 5px 1px 1px $blue, 6px 1px 1px $blue,
+      7px 1px 1px $blue;
+    -webkit-transform: rotateY(-40deg);
+  }
+  100% {
+    text-shadow: 0px 0px 0px $blue;
+    -webkit-transform: rotateY(0deg);
+  }
+}
+
+@-moz-keyframes rotate {
+  0% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -moz-transform: rotateY(0deg);
+  }
+
+  25% {
+    text-shadow: 1px 1px 1px $darkblue, -2px 1px 1px $darkblue,
+      -3px 1px 1px $darkblue, -4px 1px 1px $darkblue, -4px 1px 1px $darkblue,
+      -5px 1px 1px $darkblue, -6px 1px 1px $darkblue, -7px 1px 1px $darkblue;
+    -moz-transform: rotateY(40deg);
+  }
+  50% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -moz-transform: rotateY(0deg);
+  }
+
+  75% {
+    text-shadow: 1px 1px 1px $blue, 2px 1px 1px $blue, 3px 1px 1px $blue,
+      4px 1px 1px $blue, 4px 1px 1px $blue, 5px 1px 1px $blue, 6px 1px 1px $blue,
+      7px 1px 1px $blue;
+    -moz-transform: rotateY(-40deg);
+  }
+  100% {
+    text-shadow: 0px 0px 0px $blue;
+    -moz-transform: rotateY(0deg);
+  }
+}
+
+@-o-keyframes rotate {
+  0% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -o-transform: rotateY(0deg);
+  }
+
+  25% {
+    text-shadow: 1px 1px 1px $darkblue, -2px 1px 1px $darkblue,
+      -3px 1px 1px $darkblue, -4px 1px 1px $darkblue, -4px 1px 1px $darkblue,
+      -5px 1px 1px $darkblue, -6px 1px 1px $darkblue, -7px 1px 1px $darkblue;
+    -o-transform: rotateY(40deg);
+  }
+  50% {
+    text-shadow: 0px 0px 0px $darkblue;
+    -o-transform: rotateY(0deg);
+  }
+
+  75% {
+    text-shadow: 1px 1px 1px $blue, 2px 1px 1px $blue, 3px 1px 1px $blue,
+      4px 1px 1px $blue, 4px 1px 1px $blue, 5px 1px 1px $blue, 6px 1px 1px $blue,
+      7px 1px 1px $blue;
+    -o-transform: rotateY(-40deg);
+  }
+  100% {
+    text-shadow: 0px 0px 0px $blue;
+    -o-transform: rotateY(0deg);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    text-shadow: 0px 0px 0px $darkblue;
+    transform: rotateY(0deg);
+  }
+
+  25% {
+    text-shadow: 1px 1px 1px $darkblue, -2px 1px 1px $darkblue,
+      -3px 1px 1px $darkblue, -4px 1px 1px $darkblue, -4px 1px 1px $darkblue,
+      -5px 1px 1px $darkblue, -6px 1px 1px $darkblue, -7px 1px 1px $darkblue;
+    transform: rotateY(40deg);
+  }
+  50% {
+    text-shadow: 0px 0px 0px $darkblue;
+    transform: rotateY(0deg);
+  }
+
+  75% {
+    text-shadow: 1px 1px 1px $blue, 2px 1px 1px $blue, 3px 1px 1px $blue,
+      4px 1px 1px $blue, 4px 1px 1px $blue, 5px 1px 1px $blue, 6px 1px 1px $blue,
+      7px 1px 1px $blue;
+    transform: rotateY(-40deg);
+  }
+  100% {
+    text-shadow: 0px 0px 0px $blue;
+    transform: rotateY(0deg);
+  }
+}
+
+// 3D button
+.btn3d {
+  position: relative;
+  top: -6px;
+  border: 0;
+  transition: all 40ms linear;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+}
+
+.btn3d:active:focus,
+.btn3d:focus:hover,
+.btn3d:focus {
+  -moz-outline-style: none;
+  outline: medium none;
+}
+
+.btn3d:active,
+.btn3d.active {
+  top: 2px;
+}
+
+.btn3d.btn-warning {
+  box-shadow: 0 0 0 1px #d79a47 inset, 0 0 0 2px rgba(255, 255, 255, 0.15) inset,
+    0 8px 0 0 #d79a34, 0 8px 8px 1px rgba(0, 0, 0, 0.5);
+  background-color: #feaf20;
+}
+
+.btn3d.btn-warning:active,
+.btn3d.btn-warning.active {
+  box-shadow: 0 0 0 1px #d79a47 inset, 0 0 0 1px rgba(255, 255, 255, 0.15) inset,
+    0 1px 3px 1px rgba(0, 0, 0, 0.3);
+  background-color: #feaf20;
+}
+
+// Borders in corners
+.border-corners {
+  position: relative;
+  &:before {
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-top: 2.5px solid $lightgray;
+    border-left: 2.5px solid $lightgray;
+    @include media-breakpoint-down(md) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+  &:after {
+    display: block;
+    content: '';
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-top: 2.5px solid $lightgray;
+    border-right: 2.5px solid $lightgray;
+    @include media-breakpoint-down(md) {
+      width: 10px;
+      height: 10px;
+    }
+  }
+
+  .border_btm {
+    &:after {
+      display: block;
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      bottom: 0px;
+      right: 0px;
+      border-bottom: 2.5px solid $lightgray;
+      border-right: 2.5px solid $lightgray;
+      @include media-breakpoint-down(md) {
+        width: 10px;
+        height: 10px;
+      }
+    }
+    &:before {
+      display: block;
+      content: '';
+      width: 15px;
+      height: 15px;
+      position: absolute;
+      bottom: 0px;
+      left: 0px;
+      border-bottom: 2.5px solid $lightgray;
+      border-left: 2.5px solid $lightgray;
+      @include media-breakpoint-down(md) {
+        width: 10px;
+        height: 10px;
+      }
+    }
+  }
+}
+
+// Footer mountain shape
+.clipPath--mtn2--T {
+  clip-path: polygon(
+    0 3.5%,
+    2% 3%,
+    7.5% 3.5%,
+    8% 3.7%,
+    8.5% 4%,
+    11.5% 3.1%,
+    12% 3%,
+    12.5% 3.1%,
+    15% 4%,
+    17.7% 2.1%,
+    18% 2%,
+    19.5% 2.5%,
+    23% 3%,
+    28% 3%,
+    29% 3.5%,
+    31% 4%,
+    32% 5%,
+    34.5% 3.2%,
+    35% 3%,
+    36% 3.3%,
+    39% 5%,
+    48% 0,
+    50% 1%,
+    52.5% 1%,
+    53% 1.1%,
+    58% 5%,
+    60% 4.7%,
+    63.5% 3%,
+    64% 3.1%,
+    64.5% 3%,
+    65% 3.2%,
+    66% 3.1%,
+    69% 4%,
+    70% 4.3%,
+    73% 5%,
+    75% 4.6%,
+    77% 4.3%,
+    77.6% 4.1%,
+    78% 4%,
+    79% 4.6%,
+    80% 5%,
+    80.5% 4.8%,
+    83% 3%,
+    85% 3.7%,
+    86% 3.5%,
+    87% 3.7%,
+    88% 3%,
+    93% 3.7%,
+    94% 2.7%,
+    95% 3%,
+    96% 2.9%,
+    100% 3.5%,
+    100% 100%,
+    0 100%
+  );
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
