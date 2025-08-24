@@ -77,8 +77,7 @@ const Header = () => {
                 <span>a</span>
               </h1>
               <p className="text-center mt-4 p-4 p-md-5 p-3 p-md-5 border-corners bg-dark">
-                Based in Australia, I'm a front-end developer passionate about
-                building accessible web apps that users love.
+                Data Analyst & Analytics Engineer with 3+ years of experience delivering comprehensive data solutions and actionable business intelligence.
                 <span className="border_btm"></span>
               </p>
             </div>

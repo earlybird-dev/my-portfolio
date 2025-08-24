@@ -224,29 +224,27 @@ const Projects = () => {
                 <div className="project-description my-3 my-md-4 px-3 px-md-4 px-lg-5">
                   <ul className="p-4 p-md-5 border-corners bg-dark">
                     <li className="mb-2">
-                      The company website was rebuilt from scratch with{' '}
+                      Rebuilt the company website from scratch using{' '}
                       <span className="font-monospace text-gray p-1">
                         ReactJS
-                      </span>{' '}
+                      </span>
                       ,{' '}
                       <span className="font-monospace text-gray p-1">
                         Bootstrap 5
-                      </span>{' '}
-                      and{' '}
+                      </span>
+                      , and{' '}
                       <span className="font-monospace text-gray p-1">SASS</span>
-                      .
+                      , delivering a modern, responsive web presence that improved user experience and company branding.
                     </li>
                     <li className="mb-2">
-                      A{' '}
+                      Developed a dynamic{' '}
                       <span className="font-monospace text-gray p-1">
                         Google Sheets API
                       </span>{' '}
-                      was created which connected to a spreadsheet, get the list
-                      of job vacancies, and then delivered it to the website
-                      with zero latency.
+                      integration that automatically synchronises job vacancy data from spreadsheets to the website, enabling real-time content updates with zero latency.
                     </li>
                     <li className="mb-2">
-                      Updating the content of the{' '}
+                      Implemented content management system allowing instant updates to the{' '}
                       <a
                         href="https://tasmanianberries.com.au/work-with-us"
                         className="text-lightblue"
@@ -255,8 +253,7 @@ const Projects = () => {
                       >
                         career page
                       </a>{' '}
-                      could be done within seconds just by using a Google
-                      Spreadsheet.
+                      through Google Spreadsheet integration, streamlining recruitment workflows and reducing administrative overhead.
                     </li>
                     <span className="border_btm"></span>
                   </ul>
@@ -270,86 +267,6 @@ const Projects = () => {
                     alt="Firestore Database"
                     className="rounded"
                   />
-                  <img src={gs} alt="Google Sheets API" className="rounded" />
-                  <img src={api} alt="API" className="rounded" />
-                </div>
-              </div>
-            </div>
-          </div>
-          <div className="col-12 col-lg-6 ">
-            <div className="project d-flex flex-column bg-darkgray">
-              <div className="position-relative">
-                <div className="project-links d-flex gap-3 gap-md-4 gap-lg-5">
-                  <a
-                    href="https://script.google.com/a/u/macros/s/AKfycbzqA_BjxQ2x_JSOjYQ69ayHRxQFZ99iA2w9MhfRoBwZ84tofg-WFEwX7WmbVVxP91LboQ/exec"
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <i className="me-2 fa fa-external-link"></i>
-                    <span>Live</span>
-                  </a>
-                  <a href="#projects">
-                    <i className="me-2 fa fa-code"></i>
-                    <span>Code</span>
-                  </a>
-                </div>
-                <div className="project-img d-flex align-items-center justify-content-center">
-                  <div className="overlay" style={bgStyle}></div>
-                  <img src={screen3} alt="" className="p-3" />
-                </div>
-              </div>
-              <div className="project-info d-flex flex-column px-0 py-5">
-                <div className="project-name text-center">
-                  Tasmanian Berries Web Apps{' '}
-                  <span className="text-lightblue">x5</span>
-                </div>
-                <div className="project-description my-3 my-md-4 px-3 px-md-4 px-lg-5">
-                  <ul className="p-4 p-md-5 border-corners bg-dark">
-                    <li className="mb-2">
-                      A number of in-house web apps were built using{' '}
-                      <span className="font-monospace text-gray p-1">
-                        JavaScript
-                      </span>
-                      , vanilla{' '}
-                      <span className="font-monospace text-gray p-1">CSS</span>,{' '}
-                      <span className="font-monospace text-gray p-1">
-                        Bootstrap
-                      </span>
-                      .
-                    </li>
-                    <li className="mb-2">
-                      A single web app would come with its own spreadsheet and{' '}
-                      <span className="font-monospace text-gray p-1">
-                        Google Sheets API
-                      </span>{' '}
-                      as a backend.
-                    </li>
-                    <li className="mb-2">
-                      One of the apps allowed harvest supervisors manage the
-                      daily attendance and performance of 400+ seasonal workers.
-                      The other apps could help with stock management, daily
-                      harvest report, email automation, etc.
-                    </li>
-                    <li className="mb-2">
-                      See an example of the{' '}
-                      <a
-                        href="https://script.google.com/a/u/macros/s/AKfycbzqA_BjxQ2x_JSOjYQ69ayHRxQFZ99iA2w9MhfRoBwZ84tofg-WFEwX7WmbVVxP91LboQ/exec"
-                        target="_blank"
-                        rel="noreferrer"
-                        className="text-lightblue"
-                      >
-                        PPE Stocktake App
-                      </a>
-                      .
-                    </li>
-                    <span className="border_btm"></span>
-                  </ul>
-                </div>
-                <div className="project-skills d-flex align-items-center justify-content-center flex-wrap gap-3 gap-md-4 px-3 px-md-4 px-lg-5">
-                  <img src={css1} alt="CSS" className="rounded" />
-                  <img src={bootstrap1} alt="Bootstrap" className="rounded" />
-                  <img src={js2} alt="JavaScript" className="rounded" />
-                  <img src={gas} alt="Google Apps Script" className="rounded" />
                   <img src={gs} alt="Google Sheets API" className="rounded" />
                   <img src={api} alt="API" className="rounded" />
                 </div>
@@ -385,11 +302,18 @@ const Projects = () => {
                 <div className="project-description my-3 my-md-4 px-3 px-md-4 px-lg-5">
                   <ul className="p-4 p-md-5 border-corners bg-dark">
                     <li className="mb-2">
-                      The blog was created using Minimal Mistakes theme and
-                      hosted on GitHub Page.
+                      Developed a professional technical blog using{' '}
+                      <span className="font-monospace text-gray p-1">
+                        Jekyll
+                      </span>{' '}
+                      with Minimal Mistakes theme and deployed on{' '}
+                      <span className="font-monospace text-gray p-1">
+                        GitHub Pages
+                      </span>
+                      , creating a platform for sharing data science insights and methodologies.
                     </li>
                     <li className="mb-2">
-                      I used it to showcase my projects and experience in{' '}
+                      Documented comprehensive projects and analytical approaches in{' '}
                       <span className="font-monospace text-gray p-1">
                         Data Analytics
                       </span>
@@ -397,11 +321,14 @@ const Projects = () => {
                       <span className="font-monospace text-gray p-1">
                         Machine Learning
                       </span>
-                      ,{' '}
+                      , and{' '}
                       <span className="font-monospace text-gray p-1">
                         Kaggle Competitions
                       </span>
-                      , etc.
+                      , demonstrating technical expertise and problem-solving methodologies.
+                    </li>
+                    <li className="mb-2">
+                      Established thought leadership in data science community through detailed case studies, code examples, and analytical frameworks that showcase practical applications of statistical methods and machine learning algorithms.
                     </li>
                     <span className="border_btm"></span>
                   </ul>

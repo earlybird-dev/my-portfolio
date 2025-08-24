@@ -171,7 +171,7 @@ const Footer = () => {
                   <p className="">Github</p>
                 </a>
                 <a
-                  href="https://au.linkedin.com/in/trungha-nguyen"
+                  href="https://linkedin.com/in/trungha-nguyen"
                   rel="noreferrer"
                   target="_blank"
                   className="p-2 d-flex flex-column align-items-center justify-content-center"

@@ -34,8 +34,11 @@ const Skills = () => {
               Solution-oriented Data Analyst and Analytics Engineer with 3+ years of
               experience delivering comprehensive data solutions across the full analytics
               lifecycle. Expertise spans ETL processes, statistical analysis, and advanced
-              modelling techniques with modern data stack technologies and web development
-              frameworks.
+              modelling techniques that transform raw data into actionable business intelligence.
+              Proven ability to collaborate with cross-functional teams to identify key business 
+              questions, develop rigorous analytical processes, and communicate complex findings 
+              through compelling visualisations and interactive dashboards using modern data stack 
+              technologies and web development frameworks.
               <span className="border_btm"></span>
             </p>
           </div>
