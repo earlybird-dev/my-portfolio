@@ -1,18 +1,25 @@
 import React from 'react';
-import css1 from '../images/skills/css1.png';
-import html2 from '../images/skills/html2.png';
+// Programming Languages
+import python2 from '../images/skills/python2.png';
+import sql1 from '../images/skills/sql1.png';
 import js2 from '../images/skills/js2.png';
+import typescript1 from '../images/skills/typescript1.png';
+// Web Development
+import html2 from '../images/skills/html2.png';
+import css1 from '../images/skills/css1.png';
 import bootstrap1 from '../images/skills/bootstrap1.png';
 import sass1 from '../images/skills/sass1.png';
 import reactjs2 from '../images/skills/reactjs2.png';
-import sql1 from '../images/skills/sql1.png';
-import python2 from '../images/skills/python2.png';
-import typescript1 from '../images/skills/typescript1.png';
+// Cloud & Databases
+import firebase from '../images/skills/firebase.png';
+import bigquery from '../images/skills/bigquery.png';
+import power_bi from '../images/skills/power_bi.png';
+import data2 from '../images/skills/data2.png'; // For Data Analytics
+// Tools & APIs
 import git1 from '../images/skills/git1.png';
-import data2 from '../images/skills/data2.png';
 import gs from '../images/skills/gs.png';
 import gas from '../images/skills/gas.png';
-import firebase from '../images/skills/firebase.png';
+import api from '../images/skills/api.png';
 
 const Skills = () => {
   return (
@@ -24,28 +31,30 @@ const Skills = () => {
               <i className="fa fa-key fa-3dicon text-lightblue me-2"></i> Skills
             </h2>
             <p className="p-4 p-md-5 border-corners bg-dark">
-              I'm a lifelong learner who love to solve problems and build
-              things. I have a solid background in Mathematics, a Master's
-              degree in Data Science from Monash University and 2 years of
-              experience in Data Analytics and Web Development.
+              Solution-oriented Data Analyst and Analytics Engineer with 3+ years of
+              experience delivering comprehensive data solutions across the full analytics
+              lifecycle. Expertise spans ETL processes, statistical analysis, and advanced
+              modelling techniques with modern data stack technologies and web development
+              frameworks.
               <span className="border_btm"></span>
             </p>
           </div>
         </div>
         <div className="d-inline-flex flex-wrap align-items-center justify-content-center w-100">
+          {/* Programming Languages */}
           <div className="m-3 m-lg-4">
             <div className="skill">
-              <img src={html2} alt="HTML" className="rounded" />
+              <img src={python2} alt="Python" className="rounded" />
               <div className="skill-overlay">
-                <div className="skill-name">HTML</div>
+                <div className="skill-name">Python</div>
               </div>
             </div>
           </div>
           <div className="m-3 m-lg-4">
             <div className="skill">
-              <img src={css1} alt="CSS" className="rounded" />
+              <img src={sql1} alt="SQL" className="rounded" />
               <div className="skill-overlay">
-                <div className="skill-name">CSS</div>
+                <div className="skill-name">SQL</div>
               </div>
             </div>
           </div>
@@ -65,6 +74,40 @@ const Skills = () => {
               </div>
             </div>
           </div>
+          {/* Data Engineering & Analytics */}
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={bigquery} alt="BigQuery" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">BigQuery</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={power_bi} alt="Power BI" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">Power BI</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={data2} alt="Data Analytics" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">Data Analytics</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={firebase} alt="Firebase" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">Firebase</div>
+              </div>
+            </div>
+          </div>
+          {/* Web Development */}
           <div className="m-3 m-lg-4">
             <div className="skill">
               <img src={reactjs2} alt="ReactJS" className="rounded" />
@@ -83,17 +126,42 @@ const Skills = () => {
           </div>
           <div className="m-3 m-lg-4">
             <div className="skill">
+              <img src={html2} alt="HTML" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">HTML</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={css1} alt="CSS" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">CSS</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
               <img src={sass1} alt="SASS" className="rounded" />
               <div className="skill-overlay">
                 <div className="skill-name">SASS</div>
               </div>
             </div>
           </div>
+          {/* APIs & Tools */}
           <div className="m-3 m-lg-4">
             <div className="skill">
-              <img src={firebase} alt="Firebase" className="rounded" />
+              <img src={api} alt="REST APIs" className="rounded" />
               <div className="skill-overlay">
-                <div className="skill-name">Firebase</div>
+                <div className="skill-name">REST APIs</div>
+              </div>
+            </div>
+          </div>
+          <div className="m-3 m-lg-4">
+            <div className="skill">
+              <img src={git1} alt="Git" className="rounded" />
+              <div className="skill-overlay">
+                <div className="skill-name">Git</div>
               </div>
             </div>
           </div>
@@ -110,38 +178,6 @@ const Skills = () => {
               <img src={gas} alt="Google Apps Script" className="rounded" />
               <div className="skill-overlay">
                 <div className="skill-name">Google Apps Script</div>
-              </div>
-            </div>
-          </div>
-          <div className="m-3 m-lg-4">
-            <div className="skill">
-              <img src={sql1} alt="SQL" className="rounded" />
-              <div className="skill-overlay">
-                <div className="skill-name">SQL</div>
-              </div>
-            </div>
-          </div>
-          <div className="m-3 m-lg-4">
-            <div className="skill">
-              <img src={python2} alt="Python" className="rounded" />
-              <div className="skill-overlay">
-                <div className="skill-name">Python</div>
-              </div>
-            </div>
-          </div>
-          <div className="m-3 m-lg-4">
-            <div className="skill">
-              <img src={git1} alt="Git" className="rounded" />
-              <div className="skill-overlay">
-                <div className="skill-name">Git</div>
-              </div>
-            </div>
-          </div>
-          <div className="m-3 m-lg-4">
-            <div className="skill">
-              <img src={data2} alt="Data Science" className="rounded" />
-              <div className="skill-overlay">
-                <div className="skill-name">Data Science</div>
               </div>
             </div>
           </div>
